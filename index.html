@@ -27,7 +27,7 @@
         }
 
         .invite {
-            max-width: 420px;
+            max-width: 440px;
             width: 100%;
             background: #fff5f0;
             border-radius: 3rem;
@@ -46,7 +46,6 @@
             --text-light: #6b5e58;
             --border: #eddcd4;
             --gold: #b3806a;
-            --gold-soft: #d4b896;
         }
 
         section {
@@ -57,7 +56,7 @@
 
         h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 500;
             color: var(--accent);
             margin-bottom: 1.2rem;
@@ -92,11 +91,7 @@
             animation: scroll 20s linear infinite;
             width: max-content;
         }
-
-        .ticker-item {
-            margin: 0 1rem;
-        }
-
+        .ticker-item { margin: 0 1rem; }
         @keyframes scroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -106,7 +101,7 @@
             display: flex;
             justify-content: space-around;
             padding: 0.8rem 0.5rem;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             position: sticky;
@@ -118,37 +113,17 @@
             text-transform: uppercase;
             font-family: 'Inter', sans-serif;
         }
-
-        .nav a {
-            text-decoration: none;
-            color: var(--text);
-            padding: 0.3rem 0.2rem;
-            transition: color 0.2s;
-        }
-
-        .nav a:hover {
-            color: var(--accent);
-        }
+        .nav a { text-decoration: none; color: var(--text); padding: 0.3rem 0.2rem; transition: color 0.2s; }
+        .nav a:hover { color: var(--accent); }
 
         .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 0; overflow: hidden;
         }
-
         .heart-float {
-            position: absolute;
-            font-size: 1.2rem;
-            opacity: 0.12;
-            animation: floatUp 8s infinite ease-in;
-            color: var(--accent);
+            position: absolute; font-size: 1.2rem; opacity: 0.1;
+            animation: floatUp 8s infinite ease-in; color: var(--accent);
         }
-
         @keyframes floatUp {
             0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
             10% { opacity: 0.15; }
@@ -158,505 +133,232 @@
 
         .hero {
             padding: 1.8rem 1.5rem 2.2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            display: flex; flex-direction: column; align-items: center;
             background: linear-gradient(180deg, #fff5f0 0%, #fff0ea 100%);
-            position: relative;
-            z-index: 1;
+            position: relative; z-index: 1;
         }
-
         .hero-names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin: 1rem 0 0.5rem;
-            line-height: 1.2;
-            font-weight: 600;
-            font-style: italic;
+            font-size: 3.5rem; color: var(--accent);
+            margin: 1rem 0 0.5rem; line-height: 1.2;
+            font-weight: 600; font-style: italic;
         }
-
-        .hero-amp {
-            font-size: 2.2rem;
-            margin: 0 0.4rem;
-            font-style: italic;
-            font-weight: 400;
-            color: #b3806a;
-        }
-
+        .hero-amp { font-size: 2.2rem; margin: 0 0.4rem; font-style: italic; font-weight: 400; color: #b3806a; }
         .hero-date-big {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--text);
-            margin: 1rem 0;
-            font-weight: 400;
-            letter-spacing: 2px;
-            border-top: 1px dashed var(--border);
-            padding-top: 1.2rem;
-            display: inline-block;
-            font-style: italic;
+            font-size: 1.6rem; color: var(--text); margin: 1rem 0;
+            font-weight: 400; letter-spacing: 2px;
+            border-top: 1px dashed var(--border); padding-top: 1.2rem;
+            display: inline-block; font-style: italic;
         }
-
         .hero-photos {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin: 1.5rem 0 0.5rem;
-            width: 100%;
-            position: relative;
+            display: flex; gap: 1rem; justify-content: center;
+            margin: 1.5rem 0 0.5rem; width: 100%; position: relative;
         }
-
         .polaroid {
-            background: white;
-            padding: 0.5rem 0.5rem 1.8rem;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-            border-radius: 4px;
-            width: 135px;
-            height: 155px;
-            overflow: hidden;
-            position: relative;
-            animation: floatPhoto 4s ease-in-out infinite;
+            background: white; padding: 0.5rem 0.5rem 1.8rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08); border-radius: 4px;
+            width: 135px; height: 155px; overflow: hidden;
+            position: relative; animation: floatPhoto 4s ease-in-out infinite;
         }
-
-        .polaroid.right {
-            animation-delay: 1.5s;
-        }
-
+        .polaroid.right { animation-delay: 1.5s; }
         @keyframes floatPhoto {
             0%, 100% { transform: translateY(0) rotate(-1deg); }
             50% { transform: translateY(-8px) rotate(1deg); }
         }
+        .polaroid img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .polaroid img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .story-box {
+            background: white; margin: 1rem; border-radius: 2.5rem;
+            padding: 2rem 1.8rem; box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            position: relative; z-index: 1; text-align: left;
         }
-
-        .invite-text {
-            background: white;
-            margin: 1rem;
-            border-radius: 2.5rem;
-            padding: 2rem 1.8rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
-            position: relative;
-            z-index: 1;
-        }
+        .story-box p { margin-bottom: 1rem; }
+        .story-box .highlight { color: var(--accent); font-weight: 600; }
 
         /* Календарь */
         .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 4px;
-            margin: 1.5rem auto;
-            font-size: 0.9rem;
-            font-family: 'Cormorant Garamond', serif;
-            max-width: 300px;
-            background: white;
-            border-radius: 2rem;
-            padding: 1.5rem 1rem;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.03);
-            border: 1px solid var(--border);
+            display: grid; grid-template-columns: repeat(7, 1fr);
+            gap: 4px; margin: 1.5rem auto; font-size: 0.9rem;
+            font-family: 'Cormorant Garamond', serif; max-width: 300px;
+            background: white; border-radius: 2rem; padding: 1.5rem 1rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.03); border: 1px solid var(--border);
         }
-
         .calendar-grid .dow {
-            font-weight: 600;
-            color: var(--accent);
-            font-size: 0.75rem;
-            padding: 0.3rem 0;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-weight: 600; color: var(--accent); font-size: 0.7rem;
+            padding: 0.3rem 0; text-transform: uppercase; letter-spacing: 0.5px;
         }
-
         .calendar-grid .day {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 0.9rem;
-            color: #a3968c;
-            position: relative;
-            z-index: 1;
+            aspect-ratio: 1; display: flex; align-items: center;
+            justify-content: center; border-radius: 50%; font-size: 0.9rem;
+            color: #a3968c; position: relative; z-index: 1;
         }
-
         .calendar-grid .day.highlight {
-            background: var(--accent);
-            color: white;
-            font-weight: 700;
-            font-size: 1rem;
-            box-shadow: 0 2px 8px rgba(190, 0, 38, 0.25);
+            background: transparent; color: var(--accent); font-weight: 700;
+            font-size: 1rem; position: relative;
         }
-
-        .calendar-grid .day.empty {
-            visibility: hidden;
+        .calendar-grid .day.highlight::after {
+            content: '♥'; position: absolute; font-size: 2rem; color: var(--accent);
+            animation: heartPulse 1.2s infinite; z-index: -1; opacity: 0.7;
         }
+        @keyframes heartPulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.3); opacity: 0.9; }
+        }
+        .calendar-grid .day.empty { visibility: hidden; }
 
         .btn {
-            background: transparent;
-            border: 1.5px solid var(--accent);
-            color: var(--accent);
-            padding: 0.8rem 1.5rem;
-            border-radius: 3rem;
-            font-weight: 500;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-            transition: all 0.3s;
-            background: white;
-            letter-spacing: 0.5px;
-            font-family: 'Cormorant Garamond', serif;
+            background: transparent; border: 1.5px solid var(--accent);
+            color: var(--accent); padding: 0.8rem 1.5rem; border-radius: 3rem;
+            font-weight: 500; font-size: 1rem; cursor: pointer; width: 100%;
+            margin-top: 1rem; transition: all 0.3s; background: white;
+            letter-spacing: 0.5px; font-family: 'Cormorant Garamond', serif;
         }
-
-        .btn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(190, 0, 38, 0.2);
-        }
-
-        .btn.primary {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 0.9rem;
-            font-size: 1.1rem;
-        }
-
-        .btn.primary:hover {
-            background: #a3001f;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(190, 0, 38, 0.3);
-        }
+        .btn:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(190,0,38,0.2); }
+        .btn.primary { background: var(--accent); color: white; border: none; padding: 0.9rem; font-size: 1.1rem; }
+        .btn.primary:hover { background: #a3001f; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(190,0,38,0.3); }
 
         .address-box {
-            background: white;
-            border-radius: 2rem;
-            padding: 1.5rem;
-            margin: 1.2rem 0;
-            text-align: left;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            font-size: 1rem;
+            background: white; border-radius: 2rem; padding: 1.5rem;
+            margin: 1.2rem 0; text-align: left; display: flex;
+            align-items: flex-start; gap: 0.8rem; font-size: 1rem;
             font-family: 'Cormorant Garamond', serif;
         }
+        .address-box .icon { font-size: 1.5rem; flex-shrink: 0; }
 
-        .address-box .icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
+        /* Тайминг — road map */
+        .timeline-road {
+            position: relative; padding: 0; margin: 2rem 0;
+        }
+        .timeline-road::before {
+            content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+            width: 2px; background: var(--border); transform: translateX(-50%);
+            border-radius: 1px;
+        }
+        .tl-row {
+            display: flex; align-items: center; margin-bottom: 2rem;
+            position: relative; z-index: 1;
+        }
+        .tl-row:last-child { margin-bottom: 0; }
+        .tl-time {
+            width: 45%; text-align: right; padding-right: 1.5rem;
+            font-weight: 600; color: var(--accent); font-size: 1.3rem;
+            font-style: italic; font-family: 'Cormorant Garamond', serif;
+        }
+        .tl-dot {
+            width: 14px; height: 14px; background: var(--accent);
+            border-radius: 50%; position: absolute; left: 50%;
+            transform: translateX(-50%); z-index: 2;
+            box-shadow: 0 0 0 4px #fff5f0, 0 0 0 6px var(--border);
+        }
+        .tl-text {
+            width: 45%; text-align: left; padding-left: 1.5rem;
+            font-size: 1.05rem; color: var(--text); font-family: 'Cormorant Garamond', serif;
+        }
+        .tl-note {
+            background: #fff5f0; border-radius: 1.5rem; padding: 1.2rem 1.5rem;
+            margin-top: 1rem; text-align: left; font-size: 0.95rem;
+            color: var(--text-light); border: 1px dashed var(--border);
+            font-family: 'Cormorant Garamond', serif; line-height: 1.7;
         }
 
-        .timeline-item {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-            text-align: left;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
-            align-items: flex-start;
+        .icon-row {
+            display: flex; align-items: flex-start; gap: 1rem;
+            margin-bottom: 1.2rem; text-align: left;
         }
+        .icon-row .ir-icon { font-size: 1.8rem; flex-shrink: 0; }
+        .icon-row .ir-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--text); line-height: 1.6; }
 
-        .time {
-            font-weight: 600;
-            color: var(--accent);
-            min-width: 70px;
-            font-size: 1.2rem;
-            font-style: italic;
-            flex-shrink: 0;
-        }
-
-        .timeline-note {
-            background: #fff5f0;
-            border-radius: 1.5rem;
-            padding: 1.2rem 1.5rem;
-            margin-top: 1.5rem;
-            text-align: left;
-            font-size: 0.95rem;
-            color: var(--text-light);
-            border: 1px dashed var(--border);
-            font-family: 'Cormorant Garamond', serif;
-            line-height: 1.7;
-        }
-
-        /* Вишлист */
         .wish-card {
-            background: white;
-            border-radius: 1.8rem;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            text-align: left;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
+            background: white; border-radius: 1.8rem; padding: 1.5rem;
+            margin: 1rem 0; text-align: left; box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+            font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+            border: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1rem;
         }
-
-        .wish-card .wish-icon {
-            font-size: 2.2rem;
-            flex-shrink: 0;
-            line-height: 1;
-        }
-
-        .wish-card .wish-text strong {
-            display: block;
-            font-size: 1.15rem;
-            margin-bottom: 0.2rem;
-            color: var(--text);
-        }
-
-        .wish-card .wish-text span {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            font-style: italic;
-        }
+        .wish-card .wish-icon { font-size: 2.2rem; flex-shrink: 0; line-height: 1; }
+        .wish-card .wish-text strong { display: block; font-size: 1.15rem; margin-bottom: 0.2rem; color: var(--text); }
+        .wish-card .wish-text span { font-size: 0.95rem; color: var(--text-light); font-style: italic; }
 
         .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.8rem 0;
+            display: flex; justify-content: center; gap: 1.5rem; margin: 1.8rem 0;
         }
+        .cd-num { font-size: 2.8rem; font-weight: 500; color: var(--accent); font-family: 'Cormorant Garamond', serif; font-style: italic; }
+        .cd-lbl { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; color: var(--text-light); font-style: italic; }
 
-        .cd-num {
-            font-size: 2.8rem;
-            font-weight: 500;
-            color: var(--accent);
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-        }
-
-        .cd-lbl {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-style: italic;
-        }
-
-        /* Футер в округлом боксе */
         .footer {
-            background: white;
-            margin: 1rem;
-            border-radius: 2.5rem;
-            padding: 2rem 1.8rem;
-            text-align: center;
-            font-style: italic;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
-            color: var(--accent);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
-            border: 1px solid var(--border);
-            position: relative;
-            z-index: 1;
+            background: white; margin: 1rem; border-radius: 2.5rem;
+            padding: 2rem 1.8rem; text-align: center; font-style: italic;
+            font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+            color: var(--accent); box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid var(--border); position: relative; z-index: 1;
         }
-
-        .footer .quote {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            color: var(--accent);
-        }
-
-        .footer .names {
-            font-size: 1.2rem;
-            color: var(--text-light);
-        }
+        .footer .names { font-size: 1.2rem; color: var(--text-light); margin-top: 0.5rem; }
 
         .fixed-cta {
-            position: sticky;
-            bottom: 1rem;
-            background: var(--accent);
-            color: white;
-            padding: 0.9rem;
-            border-radius: 3rem;
-            text-align: center;
-            margin: 0 1.5rem 1rem;
-            text-decoration: none;
-            display: block;
-            font-weight: 500;
-            box-shadow: 0 8px 18px rgba(190, 0, 38, 0.3);
-            letter-spacing: 0.5px;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
-            z-index: 2;
+            position: sticky; bottom: 1rem; background: var(--accent);
+            color: white; padding: 0.9rem; border-radius: 3rem; text-align: center;
+            margin: 0 1.5rem 1rem; text-decoration: none; display: block;
+            font-weight: 500; box-shadow: 0 8px 18px rgba(190,0,38,0.3);
+            letter-spacing: 0.5px; font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem; z-index: 2;
         }
 
         .messenger-choice {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center;
         }
-
-        .messenger-choice.show {
-            display: flex;
-        }
-
+        .messenger-choice.show { display: flex; }
         .messenger-dialog {
-            background: white;
-            border-radius: 2rem;
-            padding: 2rem;
-            text-align: center;
-            max-width: 340px;
-            width: 90%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: white; border-radius: 2rem; padding: 2rem; text-align: center;
+            max-width: 340px; width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             font-family: 'Cormorant Garamond', serif;
         }
+        .messenger-dialog h3 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--accent); font-style: italic; }
+        .messenger-dialog p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .messenger-buttons { display: flex; flex-direction: column; gap: 0.8rem; }
+        .btn-email { background: var(--accent); color: white; border: none; padding: 1rem; border-radius: 3rem; font-size: 1.1rem; cursor: pointer; font-family: 'Cormorant Garamond', serif; }
+        .btn-tg { background: #0088cc; color: white; border: none; padding: 1rem; border-radius: 3rem; font-size: 1.1rem; cursor: pointer; font-family: 'Cormorant Garamond', serif; }
 
-        .messenger-dialog h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-            font-style: italic;
-        }
+        .map-link { display: inline-block; margin-top: 0.8rem; color: var(--accent); text-decoration: underline; font-size: 1rem; cursor: pointer; }
 
-        .messenger-dialog p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+        input, select {
+            font-family: 'Cormorant Garamond', serif; font-size: 1rem;
         }
-
-        .messenger-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
+        .form-section { text-align: left; padding: 0.5rem 0; }
+        .form-section-label { font-weight: 500; color: var(--text); margin-bottom: 0.5rem; display: block; font-size: 1.05rem; }
+        .hidden-fields {
+            display: none; flex-direction: column; gap: 0.8rem; margin-top: 0.5rem;
+            padding: 1rem; background: #fff5f0; border-radius: 1.5rem; border: 1px solid var(--border);
         }
-
-        .btn-email {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 3rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-weight: 500;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .btn-tg {
-            background: #0088cc;
-            color: white;
-            border: none;
-            padding: 1rem;
-            border-radius: 3rem;
-            font-size: 1.1rem;
-            cursor: pointer;
-            font-weight: 500;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .map-link {
-            display: inline-block;
-            margin-top: 0.8rem;
-            color: var(--accent);
-            text-decoration: underline;
-            font-size: 1rem;
-            cursor: pointer;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        /* Дресс-код */
-        .dress-colors {
-            display: flex;
-            gap: 1.2rem;
-            justify-content: center;
-            margin: 1.5rem 0;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .dress-color {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .dress-note {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-            font-size: 1rem;
-            color: var(--text-light);
-            font-family: 'Cormorant Garamond', serif;
-            background: #fdf8f3;
-            border-radius: 1.5rem;
-            padding: 0.8rem 1.2rem;
-        }
-
-        .dress-note .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--gold);
-            display: inline-block;
-        }
+        .hidden-fields.show { display: flex; }
 
         .decorative-heart {
-            font-size: 1.5rem;
-            opacity: 0.3;
-            display: inline-block;
+            font-size: 1.5rem; opacity: 0.3; display: inline-block;
             animation: pulse 2s infinite;
         }
-
         @keyframes pulse {
             0%, 100% { transform: scale(1); opacity: 0.3; }
             50% { transform: scale(1.3); opacity: 0.5; }
         }
 
-        input, select, textarea {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+        .dress-colors {
+            display: flex; gap: 1.2rem; justify-content: center;
+            margin: 1.5rem 0; flex-wrap: wrap; align-items: center;
         }
-
-        .form-section {
-            text-align: left;
-            padding: 0.5rem 0;
+        .dress-color {
+            width: 42px; height: 42px; border-radius: 50%;
+            border: 2px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
-
-        .form-section-label {
-            font-weight: 500;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            display: block;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.05rem;
+        .dress-note {
+            display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+            margin-top: 0.8rem; font-size: 1rem; color: var(--text-light);
+            background: #fdf8f3; border-radius: 1.5rem; padding: 0.8rem 1.2rem;
         }
-
-        .hidden-fields {
-            display: none;
-            flex-direction: column;
-            gap: 0.8rem;
-            margin-top: 0.5rem;
-            padding: 1rem;
-            background: #fff5f0;
-            border-radius: 1.5rem;
-            border: 1px solid var(--border);
-        }
-
-        .hidden-fields.show {
-            display: flex;
-        }
+        .dress-note .dot { width: 12px; height: 12px; border-radius: 50%; background: #c0392b; display: inline-block; }
     </style>
 </head>
 <body>
-
 <div class="floating-hearts" id="floatingHearts"></div>
-
 <div class="invite">
 
     <div class="ticker">
@@ -664,15 +366,16 @@
             <span class="ticker-item">06.09.2026 · Наша свадьба</span>
             <span class="ticker-item">06.09.2026 · Семён и Маша</span>
             <span class="ticker-item">06.09.2026 · 6 лет вместе</span>
-            <span class="ticker-item">06.09.2026 · Алиса в стране чудес</span>
+            <span class="ticker-item">06.09.2026 · История одной любви</span>
             <span class="ticker-item">06.09.2026 · Наша свадьба</span>
             <span class="ticker-item">06.09.2026 · Семён и Маша</span>
             <span class="ticker-item">06.09.2026 · 6 лет вместе</span>
-            <span class="ticker-item">06.09.2026 · Алиса в стране чудес</span>
+            <span class="ticker-item">06.09.2026 · История одной любви</span>
         </div>
     </div>
 
     <div class="nav">
+        <a href="#story">История</a>
         <a href="#schedule">Программа</a>
         <a href="#location">Локация</a>
         <a href="#dresscode">Дресс-код</a>
@@ -680,8 +383,6 @@
     </div>
 
     <section class="hero">
-        <span class="decorative-heart" style="position:absolute; top:10px; left:20px;">♥</span>
-        <span class="decorative-heart" style="position:absolute; top:30px; right:25px; animation-delay:1s;">♥</span>
         <div class="hero-photos">
             <div class="polaroid"><img src="photo1.jpg" alt="Фото пары"></div>
             <div class="polaroid right"><img src="photo2.jpg" alt="Фото пары"></div>
@@ -689,13 +390,14 @@
         <div class="hero-names">Маша <span class="hero-amp">&</span> Семён</div>
         <div class="hero-date-big">06 · 09 · 2026</div>
         <p style="font-style:italic; color:#b3806a; font-size:1.1rem;">Не прошло и 6 лет <span class="decorative-heart">♥</span></p>
-        <p style="font-size:0.9rem; margin-top:0.3rem; color: var(--accent-soft);">✨ Алиса в стране чудес ✨</p>
+        <p style="font-size:1rem; color:var(--accent-soft); font-style:italic;">✨ История одной любви ✨</p>
     </section>
 
-    <section class="invite-text">
-        <h2>Дорогие гости</h2>
-        <p>Мы прошли долгий путь длиной в 6 лет, полный нежности, поддержки и настоящей любви. Этот день станет началом нашей семейной истории, и мы будем рады разделить его с вами.</p>
-        <p style="margin-top:1rem;">Следуйте за белым кроликом в мир волшебства, где сбываются мечты. Обещаем атмосферу сказки, улыбок и душевных разговоров. <span class="decorative-heart">♥</span></p>
+    <!-- История -->
+    <section class="story-box" id="story">
+        <p>Она думала, что пицца — это вершина счастья, пока он не сделал предложение. Он думал, что пиво с друзьями — это идеальный вечер, пока она не сказала <span class="highlight">«да»</span>.</p>
+        <p>Теперь они оба знают: свадьба — это когда можно и пиццу, и пиво, но в красивом платье и при галстуке.</p>
+        <p style="margin-top:1.5rem;"><strong>Короче, мы — МЫ. И мы решили пожениться!</strong> Да-да, те самые, что спорили о том, кто последний доест печеньку. 🍪</p>
     </section>
 
     <!-- Календарь + Тайминг -->
@@ -714,17 +416,17 @@
 
         <div style="margin-top: 2.5rem;">
             <h2>Тайминг дня</h2>
-            <div class="timeline-item"><span class="time">17:00</span> Сбор гостей на точке</div>
-            <div class="timeline-item"><span class="time">17:30</span> Начало программы, ведущий (4 часа)</div>
-            <div class="timeline-item"><span class="time">18:00</span> DJ-сет (5 часов музыки)</div>
-            <div class="timeline-item"><span class="time">22–23:00</span> Ориентировочный разъезд</div>
+            <div class="timeline-road">
+                <div class="tl-row"><span class="tl-time">17:00</span><span class="tl-dot"></span><span class="tl-text">Сбор гостей на точке</span></div>
+                <div class="tl-row"><span class="tl-time">17:30</span><span class="tl-dot"></span><span class="tl-text">Начало программы, ведущий (4 часа)</span></div>
+                <div class="tl-row"><span class="tl-time">18:00</span><span class="tl-dot"></span><span class="tl-text">DJ-сет (5 часов музыки)</span></div>
+                <div class="tl-row"><span class="tl-time">22–23</span><span class="tl-dot"></span><span class="tl-text">Ориентировочный разъезд</span></div>
+            </div>
         </div>
 
-        <div class="timeline-note">
-            <p style="margin-bottom:0.5rem;">💡 <strong>Важная информация:</strong></p>
-            <p>Раньше 17:00 можно приехать, только если хотите помочь с подготовкой. <em>Не советуем!</em> 😄</p>
-            <p style="margin-top:0.5rem;">Разъезд ориентировочно в 22:00–23:00 — увы, кому-то на следующий день на работу.</p>
-            <p style="margin-top:0.5rem;">🌙 <strong>Кто-то может остаться с нами с ночёвкой</strong> — укажите это в анкете ниже.</p>
+        <div class="tl-note">
+            <p>💡 Раньше 17:00 — только если хотите помочь. <em>Не советуем!</em> 😄</p>
+            <p style="margin-top:0.3rem;">🌙 Кто-то может остаться с ночёвкой — укажите в анкете.</p>
         </div>
     </section>
 
@@ -735,7 +437,6 @@
             <span class="icon">📍</span>
             <div><strong>Волгоград, Советский район</strong><br>ул. Джамбула Джабаева, 44/107</div>
         </div>
-        <p style="font-size:1rem; margin-bottom:0.5rem;">Волгоградская область</p>
         <a class="map-link" href="https://yandex.ru/maps/?text=Волгоград,+ул.+Джамбула+Джабаева,+44/107" target="_blank">🗺️ Открыть в Яндекс.Картах</a>
         <div style="margin-top:1rem; border-radius:2rem; overflow:hidden; height:200px; background:#eee;">
             <iframe src="https://yandex.ru/map-widget/v1/?text=Волгоград,%20ул.%20Джамбула%20Джабаева,%2044/107&z=16&lang=ru_RU" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
@@ -745,144 +446,98 @@
     <!-- Дресс-код -->
     <section id="dresscode">
         <h2>Дресс-код</h2>
-        <p>Наша свадьба пройдёт в стиле <strong>«Алиса в Стране чудес»</strong>.</p>
-        <p style="margin-top:0.5rem;">Основные цвета: <strong>белый</strong> и <strong>кремовый</strong>.</p>
-        <p style="font-size:1rem; color: var(--text-light);">Опционально: светло-бежевый.</p>
-
+        <p>Никаких красных платьев (кроме невесты — она одна такая звезда), никаких спортивных костюмов (даже если они Gucci), и пожалуйста, никаких тапок с носками! 🙏</p>
         <div class="dress-colors">
-            <span class="dress-color" style="background: #ffffff;" title="Белый"></span>
-            <span class="dress-color" style="background: #faf8f5;" title="Молочно-белый"></span>
-            <span class="dress-color" style="background: #f5f0e8;" title="Кремовый"></span>
-            <span class="dress-color" style="background: #efe8db;" title="Светло-кремовый"></span>
+            <span class="dress-color" style="background:#fff;"></span>
+            <span class="dress-color" style="background:#faf8f5;"></span>
+            <span class="dress-color" style="background:#f5f0e8;"></span>
+            <span class="dress-color" style="background:#efe8db;"></span>
         </div>
-
-        <div style="margin: 1.2rem 0 0.5rem;">
-            <p style="font-size:1rem; color: var(--text-light);">Опционально:</p>
-            <div class="dress-colors" style="margin-top:0.5rem;">
-                <span class="dress-color" style="background: #e8dcc8; width:36px; height:36px;" title="Светло-бежевый"></span>
-            </div>
-        </div>
-
-        <div class="dress-note">
-            <span class="dot"></span>
-            <span>Девушкам можно добавить <strong style="color: var(--gold);">золотую деталь</strong> — украшение, пояс, заколку</span>
-        </div>
-
-        <p style="font-size:0.9rem; font-style:italic; color: #b3806a; margin-top:1rem;">🐇 Следуйте за белым кроликом! <span class="decorative-heart">♥</span></p>
+        <p style="font-size:0.95rem; color:var(--text-light);">Белый, кремовый, молочный — и никаких спорткостюмов!</p>
     </section>
 
-    <!-- Вишлист -->
+    <!-- Цветы -->
     <section>
-        <h2>Что дарить</h2>
-        <p>Если захотите нас порадовать — вот одна идея, от которой мы будем в восторге:</p>
-        <div class="wish-card">
-            <span class="wish-icon">🍷</span>
-            <div class="wish-text">
-                <strong>Бутылка белого вина</strong>
-                <span>Сладкое или полусладкое — чтобы открыть его вместе в одну из будущих годовщин и вспомнить этот волшебный день. А к бутылке можно приложить записку с пожеланиями!</span>
-            </div>
-        </div>
+        <h2>💐 Цветы</h2>
+        <p>Цветы — это прекрасно, но мы их не едим. А вот красивые слова для тоста — бесценны!</p>
     </section>
 
-    <!-- Анкета RSVP -->
+    <!-- Подарки -->
+    <section>
+        <h2>🎁 Подарки</h2>
+        <p>Лучший подарок — это ваше присутствие. Но если очень хочется, конверт всегда кстати (на развитие семейного гнёздышка и закупку печенек) 🏠</p>
+        <p style="font-size:0.9rem; font-style:italic; margin-top:0.5rem;">P.S. Мы копим на домик у моря. Ну или хотя бы на новую кофеварку. Шутка! (или нет 😄)</p>
+    </section>
+
+    <!-- Анкета -->
     <section id="rsvp">
-        <h2>Подтвердите присутствие</h2>
-        <p>Пожалуйста, дайте знать до <strong>23 августа</strong>.</p>
+        <h2>🎊 Ждём вас!</h2>
+        <p>Будет весело, громко и очень душевно. Захватите хорошее настроение, танцевальные туфли и пару салфеток.</p>
+        <p style="margin-top:1rem;">Подтвердите до <strong>23 августа</strong>.</p>
         <form id="rsvpForm" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;">
-
             <input type="text" id="guestName" placeholder="Ваше имя" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-
             <select id="rsvpChoice" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-                <option value="">Выберите вариант...</option>
+                <option value="">Выберите...</option>
                 <option value="yes">Я буду! 🐇</option>
-                <option value="no">К сожалению, не смогу 😔</option>
+                <option value="no">Не смогу 😔</option>
             </select>
-
-            <!-- +1 -->
             <div class="form-section">
-                <span class="form-section-label">👥 Вы будете с кем-то ещё (второй взрослый)?</span>
+                <span class="form-section-label">👥 +1?</span>
                 <select id="hasPlusOne" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                    <option value="no">Нет, я один / одна</option>
-                    <option value="yes">Да, со мной будет +1</option>
+                    <option value="no">Нет</option><option value="yes">Да</option>
                 </select>
                 <div class="hidden-fields" id="plusOneFields">
-                    <input type="text" id="plusOneName" placeholder="Имя второго гостя" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-                    <select id="plusOneAllergy" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                        <option value="none">Аллергия у +1: нет</option>
-                        <option value="yes">Аллергия у +1: есть</option>
-                    </select>
-                    <input type="text" id="plusOneAllergyDetails" placeholder="Опишите аллергию +1" style="display:none; padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-                    <input type="text" id="plusOneDrink" placeholder="Напитки для +1" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="plusOneName" placeholder="Имя +1" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="plusOneAllergy" placeholder="Аллергия +1" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="plusOneDrink" placeholder="Напитки +1" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                 </div>
             </div>
-
-            <!-- Аллергия -->
-            <div class="form-section">
-                <span class="form-section-label">🥜 Есть ли у вас аллергия или пищевые ограничения?</span>
-                <select id="guestAllergy" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                    <option value="none">Нет, всё отлично</option>
-                    <option value="yes">Да, есть аллергия / ограничения</option>
-                </select>
-                <input type="text" id="guestAllergyDetails" placeholder="Опишите, на что именно аллергия" style="display:none; padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%; margin-top:0.5rem;">
-            </div>
-
-            <!-- Напитки -->
+            <input type="text" id="guestAllergy" placeholder="Аллергия / ограничения" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
             <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-
-            <!-- Дети -->
             <div class="form-section">
-                <span class="form-section-label">👶 Будут ли с вами дети?</span>
+                <span class="form-section-label">👶 Дети?</span>
                 <select id="hasChildren" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                    <option value="no">Нет, без детей</option>
-                    <option value="yes">Да, со мной будут дети</option>
+                    <option value="no">Нет</option><option value="yes">Да</option>
                 </select>
                 <div class="hidden-fields" id="childrenFields">
-                    <input type="text" id="childrenNames" placeholder="Имена и возраст детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-                    <input type="text" id="childrenDrink" placeholder="Напитки для детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-                    <input type="text" id="childrenAllergy" placeholder="Аллергия у детей (если есть)" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="childrenNames" placeholder="Имена, возраст" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="childrenDrink" placeholder="Напитки детям" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="childrenAllergy" placeholder="Аллергия у детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                 </div>
             </div>
-
-            <!-- Ночевка -->
             <div class="form-section">
-                <span class="form-section-label">🌙 Желаете остаться с ночёвкой?</span>
+                <span class="form-section-label">🌙 Ночевка?</span>
                 <select id="overnight" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                    <option value="no">Нет, уедем после праздника</option>
-                    <option value="yes">Да, хотим остаться</option>
+                    <option value="no">Нет</option><option value="yes">Да, остаёмся</option>
                 </select>
             </div>
-
             <button type="submit" class="btn primary">Отправить</button>
         </form>
     </section>
 
     <section>
-        <h2>До сказки осталось</h2>
+        <h2>До свадьбы</h2>
         <div class="countdown" id="countdown">
             <div><span class="cd-num" id="days">0</span><br><span class="cd-lbl">дней</span></div>
             <div><span class="cd-num" id="hours">00</span><br><span class="cd-lbl">часов</span></div>
             <div><span class="cd-num" id="mins">00</span><br><span class="cd-lbl">минут</span></div>
             <div><span class="cd-num" id="secs">00</span><br><span class="cd-lbl">секунд</span></div>
         </div>
-        <span class="decorative-heart">♥ ♥ ♥</span>
     </section>
 
-    <!-- Футер в округлом боксе -->
     <div class="footer">
-        <div class="quote">«Мы все здесь не в своём уме»</div>
+        «Мы все здесь не в своём уме»
         <div class="names">Семён & Маша</div>
     </div>
-
-    <a href="#rsvp" class="fixed-cta">Подтвердить присутствие <span style="font-size:0.9rem;">♥</span></a>
+    <a href="#rsvp" class="fixed-cta">Подтвердить присутствие ♥</a>
 </div>
 
-<!-- Модальное окно -->
 <div class="messenger-choice" id="messengerModal">
     <div class="messenger-dialog">
-        <h3 id="modalTitle">Чудесно! 🐇</h3>
-        <p id="modalMessage">Выберите способ отправки:</p>
+        <h3 id="modalTitle">Отлично! 🎉</h3>
+        <p id="modalMessage">Куда отправить?</p>
         <div class="messenger-buttons">
-            <button class="btn-email" onclick="sendToEmail()">📧 Отправить на почту</button>
+            <button class="btn-email" onclick="sendToEmail()">📧 Почта</button>
             <button class="btn-tg" onclick="sendToTelegram()">✈️ Telegram</button>
         </div>
     </div>
@@ -893,160 +548,68 @@
     const phoneNumber = '79616982347';
     let pendingMessage = '';
 
-    function createFloatingHearts() {
-        const container = document.getElementById('floatingHearts');
-        const symbols = ['♥', '♡', '❤', '🐇', '🕮', '✨'];
-        for (let i = 0; i < 15; i++) {
-            const el = document.createElement('span');
-            el.className = 'heart-float';
-            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-            el.style.left = Math.random() * 100 + '%';
-            el.style.animationDelay = Math.random() * 8 + 's';
-            el.style.animationDuration = (6 + Math.random() * 10) + 's';
-            el.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
-            container.appendChild(el);
+    (function() {
+        const c = document.getElementById('floatingHearts');
+        const s = ['♥','♡','❤','🐇','✨','🍪','🍕'];
+        for(let i=0;i<15;i++){
+            const e=document.createElement('span');
+            e.className='heart-float';
+            e.textContent=s[Math.floor(Math.random()*s.length)];
+            e.style.left=Math.random()*100+'%';
+            e.style.animationDelay=Math.random()*8+'s';
+            e.style.animationDuration=(6+Math.random()*10)+'s';
+            e.style.fontSize=(0.8+Math.random()*2)+'rem';
+            c.appendChild(e);
         }
-    }
-    createFloatingHearts();
+    })();
 
-    // Показать/скрыть детали аллергии гостя
-    document.getElementById('guestAllergy').addEventListener('change', function() {
-        const details = document.getElementById('guestAllergyDetails');
-        details.style.display = this.value === 'yes' ? 'block' : 'none';
-        if (this.value !== 'yes') details.value = '';
+    document.getElementById('hasPlusOne').addEventListener('change', function(){
+        document.getElementById('plusOneFields').classList.toggle('show', this.value==='yes');
+    });
+    document.getElementById('hasChildren').addEventListener('change', function(){
+        document.getElementById('childrenFields').classList.toggle('show', this.value==='yes');
     });
 
-    // Показать/скрыть поля +1
-    document.getElementById('hasPlusOne').addEventListener('change', function() {
-        const fields = document.getElementById('plusOneFields');
-        if (this.value === 'yes') {
-            fields.classList.add('show');
-        } else {
-            fields.classList.remove('show');
-            document.getElementById('plusOneName').value = '';
-            document.getElementById('plusOneAllergy').value = 'none';
-            document.getElementById('plusOneAllergyDetails').value = '';
-            document.getElementById('plusOneDrink').value = '';
-            document.getElementById('plusOneAllergyDetails').style.display = 'none';
-        }
-    });
-
-    // Показать/скрыть детали аллергии +1
-    document.getElementById('plusOneAllergy').addEventListener('change', function() {
-        const details = document.getElementById('plusOneAllergyDetails');
-        details.style.display = this.value === 'yes' ? 'block' : 'none';
-        if (this.value !== 'yes') details.value = '';
-    });
-
-    // Показать/скрыть поля детей
-    document.getElementById('hasChildren').addEventListener('change', function() {
-        const fields = document.getElementById('childrenFields');
-        if (this.value === 'yes') {
-            fields.classList.add('show');
-        } else {
-            fields.classList.remove('show');
-            document.getElementById('childrenNames').value = '';
-            document.getElementById('childrenDrink').value = '';
-            document.getElementById('childrenAllergy').value = '';
-        }
-    });
-
-    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+    document.getElementById('rsvpForm').addEventListener('submit', function(e){
         e.preventDefault();
-        const name = document.getElementById('guestName').value.trim();
-        const choice = document.getElementById('rsvpChoice').value;
-        const allergy = document.getElementById('guestAllergy').value;
-        const allergyDetails = document.getElementById('guestAllergyDetails').value.trim();
-        const drink = document.getElementById('guestDrink').value.trim();
-        const hasPlusOne = document.getElementById('hasPlusOne').value;
-        const plusOneName = document.getElementById('plusOneName').value.trim();
-        const plusOneAllergy = document.getElementById('plusOneAllergy').value;
-        const plusOneAllergyDetails = document.getElementById('plusOneAllergyDetails').value.trim();
-        const plusOneDrink = document.getElementById('plusOneDrink').value.trim();
-        const hasChildren = document.getElementById('hasChildren').value;
-        const childrenNames = document.getElementById('childrenNames').value.trim();
-        const childrenDrink = document.getElementById('childrenDrink').value.trim();
-        const childrenAllergy = document.getElementById('childrenAllergy').value.trim();
-        const overnight = document.getElementById('overnight').value;
-
-        if (!name || !choice) {
-            alert('Пожалуйста, заполните имя и выберите вариант ответа');
-            return;
-        }
-
-        const emoji = choice === 'yes' ? '🐇' : '😔';
-        const status = choice === 'yes' ? 'Я буду!' : 'К сожалению, не смогу прийти';
-
-        let allergyText = 'Нет';
-        if (allergy === 'yes' && allergyDetails) allergyText = `Да: ${allergyDetails}`;
-        else if (allergy === 'yes') allergyText = 'Да (не указано)';
-
-        let plusOneText = '';
-        if (hasPlusOne === 'yes' && plusOneName) {
-            plusOneText = `+1: ${plusOneName}`;
-            if (plusOneDrink) plusOneText += `\n  Напитки +1: ${plusOneDrink}`;
-            let pAllergyText = 'Нет';
-            if (plusOneAllergy === 'yes' && plusOneAllergyDetails) pAllergyText = `Да: ${plusOneAllergyDetails}`;
-            else if (plusOneAllergy === 'yes') pAllergyText = 'Да (не указано)';
-            plusOneText += `\n  Аллергия +1: ${pAllergyText}`;
-        }
-
-        let childrenText = 'Нет';
-        if (hasChildren === 'yes') {
-            childrenText = `Да: ${childrenNames || 'не указаны'}`;
-            if (childrenDrink) childrenText += `\n  Напитки детям: ${childrenDrink}`;
-            if (childrenAllergy) childrenText += `\n  Аллергия у детей: ${childrenAllergy}`;
-        }
-
-        const overnightText = overnight === 'yes' ? 'Да, хотим остаться с ночёвкой 🌙' : 'Нет, уедем после праздника';
-
-        let message = `${emoji} Приглашение на свадьбу Семёна и Маши\n\n`;
-        message += `Имя: ${name}\nСтатус: ${status}\n`;
-        message += `Аллергия: ${allergyText}\n`;
-        if (drink) message += `Напитки: ${drink}\n`;
-        if (plusOneText) message += `${plusOneText}\n`;
-        message += `Дети: ${childrenText}\n`;
-        message += `Ночевка: ${overnightText}\n`;
-        message += `\nДата: 06.09.2026\nАдрес: Волгоград, ул. Джамбула Джабаева, 44/107`;
-
-        document.getElementById('modalTitle').textContent = choice === 'yes' ? 'Как чудесно! 🐇' : 'Очень жаль 😔';
-        document.getElementById('modalMessage').textContent = 'Выберите способ отправки:';
-        pendingMessage = message;
+        const name=document.getElementById('guestName').value.trim();
+        const choice=document.getElementById('rsvpChoice').value;
+        if(!name||!choice){alert('Заполните имя и выбор');return;}
+        const msg=[
+            `${choice==='yes'?'🐇':'😔'} Свадьба Семёна и Маши`,
+            `Имя: ${name}`,
+            `Статус: ${choice==='yes'?'Буду!':'Не смогу'}`,
+            `Аллергия: ${document.getElementById('guestAllergy').value||'—'}`,
+            `Напитки: ${document.getElementById('guestDrink').value||'—'}`,
+            document.getElementById('hasPlusOne').value==='yes'?`+1: ${document.getElementById('plusOneName').value||'—'} / Аллергия: ${document.getElementById('plusOneAllergy').value||'—'} / Напитки: ${document.getElementById('plusOneDrink').value||'—'}`:'',
+            document.getElementById('hasChildren').value==='yes'?`Дети: ${document.getElementById('childrenNames').value||'—'} / Напитки: ${document.getElementById('childrenDrink').value||'—'} / Аллергия: ${document.getElementById('childrenAllergy').value||'—'}`:'',
+            `Ночевка: ${document.getElementById('overnight').value==='yes'?'Да':'Нет'}`,
+            `06.09.2026, Волгоград, Джамбула Джабаева, 44/107`
+        ].filter(Boolean).join('\n');
+        pendingMessage=msg;
+        document.getElementById('modalTitle').textContent=choice==='yes'?'Ждём! 🎉':'Жаль 😔';
         document.getElementById('messengerModal').classList.add('show');
     });
 
-    function sendToEmail() {
-        const subject = encodeURIComponent('Подтверждение — Свадьба Семёна и Маши');
-        const body = encodeURIComponent(pendingMessage);
+    function sendToEmail(){
+        window.location.href=`mailto:${emailAddress}?subject=${encodeURIComponent('Свадьба')}&body=${encodeURIComponent(pendingMessage)}`;
         document.getElementById('messengerModal').classList.remove('show');
-        window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
     }
-
-    function sendToTelegram() {
-        const url = `https://t.me/+${phoneNumber}?text=${encodeURIComponent(pendingMessage)}`;
+    function sendToTelegram(){
+        window.open(`https://t.me/+${phoneNumber}?text=${encodeURIComponent(pendingMessage)}`,'_blank');
         document.getElementById('messengerModal').classList.remove('show');
-        window.open(url, '_blank');
     }
+    document.getElementById('messengerModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('show');});
 
-    document.getElementById('messengerModal').addEventListener('click', function(e) {
-        if (e.target === this) this.classList.remove('show');
-    });
-
-    const weddingDate = new Date(2026, 8, 6, 15, 0, 0).getTime();
-    function updateCountdown() {
-        const now = Date.now();
-        const d = weddingDate - now;
-        if (d < 0) {
-            ['days','hours','mins','secs'].forEach(id => document.getElementById(id).innerText = id === 'days' ? '0' : '00');
-            return;
-        }
-        document.getElementById('days').innerText = Math.floor(d / 86400000);
-        document.getElementById('hours').innerText = String(Math.floor((d % 86400000) / 3600000)).padStart(2,'0');
-        document.getElementById('mins').innerText = String(Math.floor((d % 3600000) / 60000)).padStart(2,'0');
-        document.getElementById('secs').innerText = String(Math.floor((d % 60000) / 1000)).padStart(2,'0');
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    const wd=new Date(2026,8,6,15,0,0).getTime();
+    setInterval(()=>{
+        const d=wd-Date.now();
+        if(d<0){['days','hours','mins','secs'].forEach(id=>document.getElementById(id).innerText=id==='days'?'0':'00');return;}
+        document.getElementById('days').innerText=Math.floor(d/86400000);
+        document.getElementById('hours').innerText=String(Math.floor((d%86400000)/3600000)).padStart(2,'0');
+        document.getElementById('mins').innerText=String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+        document.getElementById('secs').innerText=String(Math.floor((d%60000)/1000)).padStart(2,'0');
+    },1000);
 </script>
 </body>
 </html>
