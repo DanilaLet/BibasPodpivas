@@ -46,6 +46,7 @@
             --text-light: #6b5e58;
             --border: #eddcd4;
             --gold: #b3806a;
+            --gold-soft: #d4b896;
         }
 
         section {
@@ -140,29 +141,19 @@
             overflow: hidden;
         }
 
-        .heart {
+        .heart-float {
             position: absolute;
             font-size: 1.2rem;
-            opacity: 0.15;
+            opacity: 0.12;
             animation: floatUp 8s infinite ease-in;
             color: var(--accent);
         }
 
         @keyframes floatUp {
-            0% {
-                transform: translateY(100vh) scale(0.5) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.2;
-            }
-            90% {
-                opacity: 0.15;
-            }
-            100% {
-                transform: translateY(-10vh) scale(1.2) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.1; }
+            100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
         }
 
         .hero {
@@ -232,12 +223,8 @@
         }
 
         @keyframes floatPhoto {
-            0%, 100% {
-                transform: translateY(0) rotate(-1deg);
-            }
-            50% {
-                transform: translateY(-8px) rotate(1deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(-1deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
         }
 
         .polaroid img {
@@ -257,25 +244,53 @@
             z-index: 1;
         }
 
+        /* Календарь */
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 0.3rem;
-            margin: 1.5rem 0;
-            font-size: 0.95rem;
+            gap: 4px;
+            margin: 1.5rem auto;
+            font-size: 0.9rem;
             font-family: 'Cormorant Garamond', serif;
+            max-width: 300px;
+            background: white;
+            border-radius: 2rem;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+            border: 1px solid var(--border);
         }
 
-        .cal-day {
-            padding: 0.5rem 0;
+        .calendar-grid .dow {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.75rem;
+            padding: 0.3rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .calendar-grid .day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 50%;
+            font-size: 0.9rem;
             color: #a3968c;
+            position: relative;
+            z-index: 1;
         }
 
-        .cal-day.highlight {
+        .calendar-grid .day.highlight {
             background: var(--accent);
             color: white;
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 2px 8px rgba(190, 0, 38, 0.25);
+        }
+
+        .calendar-grid .day.empty {
+            visibility: hidden;
         }
 
         .btn {
@@ -347,7 +362,7 @@
         .time {
             font-weight: 600;
             color: var(--accent);
-            min-width: 50px;
+            min-width: 70px;
             font-size: 1.2rem;
             font-style: italic;
             flex-shrink: 0;
@@ -366,6 +381,7 @@
             line-height: 1.7;
         }
 
+        /* Вишлист */
         .wish-card {
             background: white;
             border-radius: 1.8rem;
@@ -377,13 +393,27 @@
             font-size: 1.1rem;
             border: 1px solid var(--border);
             display: flex;
-            align-items: center;
-            gap: 0.8rem;
+            align-items: flex-start;
+            gap: 1rem;
         }
 
-        .wish-card .wish-emoji {
-            font-size: 2rem;
+        .wish-card .wish-icon {
+            font-size: 2.2rem;
             flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .wish-card .wish-text strong {
+            display: block;
+            font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+            color: var(--text);
+        }
+
+        .wish-card .wish-text span {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            font-style: italic;
         }
 
         .countdown {
@@ -408,13 +438,32 @@
             font-style: italic;
         }
 
+        /* Футер в округлом боксе */
         .footer {
-            background: var(--accent);
-            color: white;
-            padding: 2rem;
+            background: white;
+            margin: 1rem;
+            border-radius: 2.5rem;
+            padding: 2rem 1.8rem;
+            text-align: center;
             font-style: italic;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
+            color: var(--accent);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer .quote {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--accent);
+        }
+
+        .footer .names {
+            font-size: 1.2rem;
+            color: var(--text-light);
         }
 
         .fixed-cta {
@@ -495,10 +544,6 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        .btn-email:hover {
-            background: #a3001f;
-        }
-
         .btn-tg {
             background: #0088cc;
             color: white;
@@ -511,10 +556,6 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        .btn-tg:hover {
-            background: #0077b5;
-        }
-
         .map-link {
             display: inline-block;
             margin-top: 0.8rem;
@@ -525,6 +566,7 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
+        /* Дресс-код */
         .dress-colors {
             display: flex;
             gap: 1.2rem;
@@ -551,13 +593,16 @@
             font-size: 1rem;
             color: var(--text-light);
             font-family: 'Cormorant Garamond', serif;
+            background: #fdf8f3;
+            border-radius: 1.5rem;
+            padding: 0.8rem 1.2rem;
         }
 
         .dress-note .dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #c0392b;
+            background: var(--gold);
             display: inline-block;
         }
 
@@ -592,7 +637,7 @@
             font-size: 1.05rem;
         }
 
-        .children-fields {
+        .hidden-fields {
             display: none;
             flex-direction: column;
             gap: 0.8rem;
@@ -603,19 +648,17 @@
             border: 1px solid var(--border);
         }
 
-        .children-fields.show {
+        .hidden-fields.show {
             display: flex;
         }
     </style>
 </head>
 <body>
 
-<!-- Плавающие сердечки -->
 <div class="floating-hearts" id="floatingHearts"></div>
 
 <div class="invite">
 
-    <!-- Бегущая строка -->
     <div class="ticker">
         <div class="ticker-track">
             <span class="ticker-item">06.09.2026 · Наша свадьба</span>
@@ -629,7 +672,6 @@
         </div>
     </div>
 
-    <!-- Навигация -->
     <div class="nav">
         <a href="#schedule">Программа</a>
         <a href="#location">Локация</a>
@@ -637,7 +679,6 @@
         <a href="#rsvp">Анкета</a>
     </div>
 
-    <!-- Hero -->
     <section class="hero">
         <span class="decorative-heart" style="position:absolute; top:10px; left:20px;">♥</span>
         <span class="decorative-heart" style="position:absolute; top:30px; right:25px; animation-delay:1s;">♥</span>
@@ -645,15 +686,12 @@
             <div class="polaroid"><img src="photo1.jpg" alt="Фото пары"></div>
             <div class="polaroid right"><img src="photo2.jpg" alt="Фото пары"></div>
         </div>
-        <div class="hero-names">
-            Маша <span class="hero-amp">&</span> Семён
-        </div>
+        <div class="hero-names">Маша <span class="hero-amp">&</span> Семён</div>
         <div class="hero-date-big">06 · 09 · 2026</div>
         <p style="font-style:italic; color:#b3806a; font-size:1.1rem;">Не прошло и 6 лет <span class="decorative-heart">♥</span></p>
         <p style="font-size:0.9rem; margin-top:0.3rem; color: var(--accent-soft);">✨ Алиса в стране чудес ✨</p>
     </section>
 
-    <!-- Приглашение -->
     <section class="invite-text">
         <h2>Дорогие гости</h2>
         <p>Мы прошли долгий путь длиной в 6 лет, полный нежности, поддержки и настоящей любви. Этот день станет началом нашей семейной истории, и мы будем рады разделить его с вами.</p>
@@ -664,13 +702,13 @@
     <section id="schedule">
         <h2>Сентябрь 2026</h2>
         <div class="calendar-grid">
-            <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span>
-            <span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-            <span class="cal-day highlight">6</span>
-            <span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span>
-            <span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
-            <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span>
-            <span>28</span><span>29</span><span>30</span>
+            <span class="dow">Пн</span><span class="dow">Вт</span><span class="dow">Ср</span><span class="dow">Чт</span><span class="dow">Пт</span><span class="dow">Сб</span><span class="dow">Вс</span>
+            <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span><span class="day">5</span>
+            <span class="day highlight">6</span>
+            <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span>
+            <span class="day">14</span><span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span>
+            <span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span>
+            <span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day empty"></span><span class="day empty"></span><span class="day empty"></span><span class="day empty"></span>
         </div>
         <button class="btn">Добавить в календарь</button>
 
@@ -679,7 +717,7 @@
             <div class="timeline-item"><span class="time">17:00</span> Сбор гостей на точке</div>
             <div class="timeline-item"><span class="time">17:30</span> Начало программы, ведущий (4 часа)</div>
             <div class="timeline-item"><span class="time">18:00</span> DJ-сет (5 часов музыки)</div>
-            <div class="timeline-item"><span class="time">22:00–23:00</span> Ориентировочный разъезд</div>
+            <div class="timeline-item"><span class="time">22–23:00</span> Ориентировочный разъезд</div>
         </div>
 
         <div class="timeline-note">
@@ -695,10 +733,7 @@
         <h2>Локация</h2>
         <div class="address-box">
             <span class="icon">📍</span>
-            <div>
-                <strong>Волгоград, Советский район</strong><br>
-                ул. Джамбула Джабаева, 44/107
-            </div>
+            <div><strong>Волгоград, Советский район</strong><br>ул. Джамбула Джабаева, 44/107</div>
         </div>
         <p style="font-size:1rem; margin-bottom:0.5rem;">Волгоградская область</p>
         <a class="map-link" href="https://yandex.ru/maps/?text=Волгоград,+ул.+Джамбула+Джабаева,+44/107" target="_blank">🗺️ Открыть в Яндекс.Картах</a>
@@ -730,7 +765,7 @@
 
         <div class="dress-note">
             <span class="dot"></span>
-            <span>Девушкам можно добавить <strong style="color:#c0392b;">красную деталь</strong> — ленту, цветок, помаду, аксессуар</span>
+            <span>Девушкам можно добавить <strong style="color: var(--gold);">золотую деталь</strong> — украшение, пояс, заколку</span>
         </div>
 
         <p style="font-size:0.9rem; font-style:italic; color: #b3806a; margin-top:1rem;">🐇 Следуйте за белым кроликом! <span class="decorative-heart">♥</span></p>
@@ -739,10 +774,13 @@
     <!-- Вишлист -->
     <section>
         <h2>Что дарить</h2>
-        <p>Мы составили небольшой список желаний, чтобы не мучить вас догадками.</p>
+        <p>Если захотите нас порадовать — вот одна идея, от которой мы будем в восторге:</p>
         <div class="wish-card">
-            <span class="wish-emoji">🍷</span>
-            <span><strong>Вино, которое нужно выпить на определённый праздник</strong><br><span style="font-size:0.9rem; color: var(--text-light);">Белое сладкое или полусладкое</span></span>
+            <span class="wish-icon">🍷</span>
+            <div class="wish-text">
+                <strong>Бутылка белого вина</strong>
+                <span>Сладкое или полусладкое — чтобы открыть его вместе в одну из будущих годовщин и вспомнить этот волшебный день. А к бутылке можно приложить записку с пожеланиями!</span>
+            </div>
         </div>
     </section>
 
@@ -751,22 +789,37 @@
         <h2>Подтвердите присутствие</h2>
         <p>Пожалуйста, дайте знать до <strong>23 августа</strong>.</p>
         <form id="rsvpForm" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;">
-            
-            <!-- Имя -->
+
             <input type="text" id="guestName" placeholder="Ваше имя" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-            
-            <!-- Присутствие -->
+
             <select id="rsvpChoice" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                 <option value="">Выберите вариант...</option>
                 <option value="yes">Я буду! 🐇</option>
                 <option value="no">К сожалению, не смогу 😔</option>
             </select>
 
+            <!-- +1 -->
+            <div class="form-section">
+                <span class="form-section-label">👥 Вы будете с кем-то ещё (второй взрослый)?</span>
+                <select id="hasPlusOne" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
+                    <option value="no">Нет, я один / одна</option>
+                    <option value="yes">Да, со мной будет +1</option>
+                </select>
+                <div class="hidden-fields" id="plusOneFields">
+                    <input type="text" id="plusOneName" placeholder="Имя второго гостя" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <select id="plusOneAllergy" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
+                        <option value="none">Аллергия у +1: нет</option>
+                        <option value="yes">Аллергия у +1: есть</option>
+                    </select>
+                    <input type="text" id="plusOneAllergyDetails" placeholder="Опишите аллергию +1" style="display:none; padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="plusOneDrink" placeholder="Напитки для +1" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                </div>
+            </div>
+
             <!-- Аллергия -->
             <div class="form-section">
                 <span class="form-section-label">🥜 Есть ли у вас аллергия или пищевые ограничения?</span>
                 <select id="guestAllergy" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                    <option value="">Выберите вариант...</option>
                     <option value="none">Нет, всё отлично</option>
                     <option value="yes">Да, есть аллергия / ограничения</option>
                 </select>
@@ -774,7 +827,7 @@
             </div>
 
             <!-- Напитки -->
-            <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам (для взрослых)" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+            <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
 
             <!-- Дети -->
             <div class="form-section">
@@ -783,14 +836,10 @@
                     <option value="no">Нет, без детей</option>
                     <option value="yes">Да, со мной будут дети</option>
                 </select>
-                
-                <div class="children-fields" id="childrenFields">
+                <div class="hidden-fields" id="childrenFields">
                     <input type="text" id="childrenNames" placeholder="Имена и возраст детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                     <input type="text" id="childrenDrink" placeholder="Напитки для детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-                    <div>
-                        <span style="font-size:0.95rem; color:var(--text-light); display:block; margin-bottom:0.3rem;">Аллергия у детей (если есть):</span>
-                        <input type="text" id="childrenAllergy" placeholder="Опишите аллергию у детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
-                    </div>
+                    <input type="text" id="childrenAllergy" placeholder="Аллергия у детей (если есть)" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                 </div>
             </div>
 
@@ -807,7 +856,6 @@
         </form>
     </section>
 
-    <!-- Обратный отсчёт -->
     <section>
         <h2>До сказки осталось</h2>
         <div class="countdown" id="countdown">
@@ -819,10 +867,11 @@
         <span class="decorative-heart">♥ ♥ ♥</span>
     </section>
 
-    <footer class="footer">
-        «Мы все здесь не в своём уме»<br>
-        <span style="font-size:1.1rem;">Семён & Маша</span>
-    </footer>
+    <!-- Футер в округлом боксе -->
+    <div class="footer">
+        <div class="quote">«Мы все здесь не в своём уме»</div>
+        <div class="names">Семён & Маша</div>
+    </div>
 
     <a href="#rsvp" class="fixed-cta">Подтвердить присутствие <span style="font-size:0.9rem;">♥</span></a>
 </div>
@@ -844,58 +893,76 @@
     const phoneNumber = '79616982347';
     let pendingMessage = '';
 
-    // Генерация плавающих сердечек
     function createFloatingHearts() {
         const container = document.getElementById('floatingHearts');
-        const hearts = ['♥', '♡', '❤', '🕮', '🐇'];
-        
+        const symbols = ['♥', '♡', '❤', '🐇', '🕮', '✨'];
         for (let i = 0; i < 15; i++) {
-            const heart = document.createElement('span');
-            heart.className = 'heart';
-            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDelay = Math.random() * 8 + 's';
-            heart.style.animationDuration = (6 + Math.random() * 10) + 's';
-            heart.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
-            container.appendChild(heart);
+            const el = document.createElement('span');
+            el.className = 'heart-float';
+            el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + '%';
+            el.style.animationDelay = Math.random() * 8 + 's';
+            el.style.animationDuration = (6 + Math.random() * 10) + 's';
+            el.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
+            container.appendChild(el);
         }
     }
-
     createFloatingHearts();
 
-    // Показать/скрыть поле аллергии
+    // Показать/скрыть детали аллергии гостя
     document.getElementById('guestAllergy').addEventListener('change', function() {
-        const detailsField = document.getElementById('guestAllergyDetails');
+        const details = document.getElementById('guestAllergyDetails');
+        details.style.display = this.value === 'yes' ? 'block' : 'none';
+        if (this.value !== 'yes') details.value = '';
+    });
+
+    // Показать/скрыть поля +1
+    document.getElementById('hasPlusOne').addEventListener('change', function() {
+        const fields = document.getElementById('plusOneFields');
         if (this.value === 'yes') {
-            detailsField.style.display = 'block';
+            fields.classList.add('show');
         } else {
-            detailsField.style.display = 'none';
-            detailsField.value = '';
+            fields.classList.remove('show');
+            document.getElementById('plusOneName').value = '';
+            document.getElementById('plusOneAllergy').value = 'none';
+            document.getElementById('plusOneAllergyDetails').value = '';
+            document.getElementById('plusOneDrink').value = '';
+            document.getElementById('plusOneAllergyDetails').style.display = 'none';
         }
     });
 
-    // Показать/скрыть поля для детей
+    // Показать/скрыть детали аллергии +1
+    document.getElementById('plusOneAllergy').addEventListener('change', function() {
+        const details = document.getElementById('plusOneAllergyDetails');
+        details.style.display = this.value === 'yes' ? 'block' : 'none';
+        if (this.value !== 'yes') details.value = '';
+    });
+
+    // Показать/скрыть поля детей
     document.getElementById('hasChildren').addEventListener('change', function() {
-        const childrenFields = document.getElementById('childrenFields');
+        const fields = document.getElementById('childrenFields');
         if (this.value === 'yes') {
-            childrenFields.classList.add('show');
+            fields.classList.add('show');
         } else {
-            childrenFields.classList.remove('show');
+            fields.classList.remove('show');
             document.getElementById('childrenNames').value = '';
             document.getElementById('childrenDrink').value = '';
             document.getElementById('childrenAllergy').value = '';
         }
     });
 
-    // Обработчик формы
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
         e.preventDefault();
-
         const name = document.getElementById('guestName').value.trim();
         const choice = document.getElementById('rsvpChoice').value;
         const allergy = document.getElementById('guestAllergy').value;
         const allergyDetails = document.getElementById('guestAllergyDetails').value.trim();
         const drink = document.getElementById('guestDrink').value.trim();
+        const hasPlusOne = document.getElementById('hasPlusOne').value;
+        const plusOneName = document.getElementById('plusOneName').value.trim();
+        const plusOneAllergy = document.getElementById('plusOneAllergy').value;
+        const plusOneAllergyDetails = document.getElementById('plusOneAllergyDetails').value.trim();
+        const plusOneDrink = document.getElementById('plusOneDrink').value.trim();
         const hasChildren = document.getElementById('hasChildren').value;
         const childrenNames = document.getElementById('childrenNames').value.trim();
         const childrenDrink = document.getElementById('childrenDrink').value.trim();
@@ -909,16 +976,21 @@
 
         const emoji = choice === 'yes' ? '🐇' : '😔';
         const status = choice === 'yes' ? 'Я буду!' : 'К сожалению, не смогу прийти';
-        
-        // Аллергия
+
         let allergyText = 'Нет';
-        if (allergy === 'yes' && allergyDetails) {
-            allergyText = `Да: ${allergyDetails}`;
-        } else if (allergy === 'yes') {
-            allergyText = 'Да (не указано)';
+        if (allergy === 'yes' && allergyDetails) allergyText = `Да: ${allergyDetails}`;
+        else if (allergy === 'yes') allergyText = 'Да (не указано)';
+
+        let plusOneText = '';
+        if (hasPlusOne === 'yes' && plusOneName) {
+            plusOneText = `+1: ${plusOneName}`;
+            if (plusOneDrink) plusOneText += `\n  Напитки +1: ${plusOneDrink}`;
+            let pAllergyText = 'Нет';
+            if (plusOneAllergy === 'yes' && plusOneAllergyDetails) pAllergyText = `Да: ${plusOneAllergyDetails}`;
+            else if (plusOneAllergy === 'yes') pAllergyText = 'Да (не указано)';
+            plusOneText += `\n  Аллергия +1: ${pAllergyText}`;
         }
 
-        // Дети
         let childrenText = 'Нет';
         if (hasChildren === 'yes') {
             childrenText = `Да: ${childrenNames || 'не указаны'}`;
@@ -926,14 +998,13 @@
             if (childrenAllergy) childrenText += `\n  Аллергия у детей: ${childrenAllergy}`;
         }
 
-        // Ночевка
         const overnightText = overnight === 'yes' ? 'Да, хотим остаться с ночёвкой 🌙' : 'Нет, уедем после праздника';
-        
+
         let message = `${emoji} Приглашение на свадьбу Семёна и Маши\n\n`;
-        message += `Имя: ${name}\n`;
-        message += `Статус: ${status}\n`;
-        message += `Аллергия/ограничения: ${allergyText}\n`;
-        if (drink) message += `Напитки (взрослые): ${drink}\n`;
+        message += `Имя: ${name}\nСтатус: ${status}\n`;
+        message += `Аллергия: ${allergyText}\n`;
+        if (drink) message += `Напитки: ${drink}\n`;
+        if (plusOneText) message += `${plusOneText}\n`;
         message += `Дети: ${childrenText}\n`;
         message += `Ночевка: ${overnightText}\n`;
         message += `\nДата: 06.09.2026\nАдрес: Волгоград, ул. Джамбула Джабаева, 44/107`;
@@ -947,10 +1018,8 @@
     function sendToEmail() {
         const subject = encodeURIComponent('Подтверждение — Свадьба Семёна и Маши');
         const body = encodeURIComponent(pendingMessage);
-        const mailtoLink = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
-        
         document.getElementById('messengerModal').classList.remove('show');
-        window.location.href = mailtoLink;
+        window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
     }
 
     function sendToTelegram() {
@@ -959,34 +1028,23 @@
         window.open(url, '_blank');
     }
 
-    // Закрытие модального окна
     document.getElementById('messengerModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            this.classList.remove('show');
-        }
+        if (e.target === this) this.classList.remove('show');
     });
 
-    // Таймер до 6 сентября 2026, 15:00
     const weddingDate = new Date(2026, 8, 6, 15, 0, 0).getTime();
-
     function updateCountdown() {
         const now = Date.now();
-        const distance = weddingDate - now;
-
-        if (distance < 0) {
-            document.getElementById('days').innerText = '0';
-            document.getElementById('hours').innerText = '00';
-            document.getElementById('mins').innerText = '00';
-            document.getElementById('secs').innerText = '00';
+        const d = weddingDate - now;
+        if (d < 0) {
+            ['days','hours','mins','secs'].forEach(id => document.getElementById(id).innerText = id === 'days' ? '0' : '00');
             return;
         }
-
-        document.getElementById('days').innerText = Math.floor(distance / 86400000);
-        document.getElementById('hours').innerText = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, '0');
-        document.getElementById('mins').innerText = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
-        document.getElementById('secs').innerText = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+        document.getElementById('days').innerText = Math.floor(d / 86400000);
+        document.getElementById('hours').innerText = String(Math.floor((d % 86400000) / 3600000)).padStart(2,'0');
+        document.getElementById('mins').innerText = String(Math.floor((d % 3600000) / 60000)).padStart(2,'0');
+        document.getElementById('secs').innerText = String(Math.floor((d % 60000) / 1000)).padStart(2,'0');
     }
-
     setInterval(updateCountdown, 1000);
     updateCountdown();
 </script>
