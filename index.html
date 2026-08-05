@@ -573,33 +573,38 @@
             50% { transform: scale(1.3); opacity: 0.5; }
         }
 
-        input, select {
+        input, select, textarea {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
         }
 
-        .rsvp-radio-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
+        .form-section {
             text-align: left;
             padding: 0.5rem 0;
         }
 
-        .rsvp-radio-group label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+        .form-section-label {
+            font-weight: 500;
             color: var(--text);
-            cursor: pointer;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
         }
 
-        .rsvp-radio-group input[type="radio"] {
-            accent-color: var(--accent);
-            width: 1.1rem;
-            height: 1.1rem;
+        .children-fields {
+            display: none;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 0.5rem;
+            padding: 1rem;
+            background: #fff5f0;
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .children-fields.show {
+            display: flex;
         }
     </style>
 </head>
@@ -746,20 +751,56 @@
         <h2>Подтвердите присутствие</h2>
         <p>Пожалуйста, дайте знать до <strong>23 августа</strong>.</p>
         <form id="rsvpForm" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;">
+            
+            <!-- Имя -->
             <input type="text" id="guestName" placeholder="Ваше имя" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+            
+            <!-- Присутствие -->
             <select id="rsvpChoice" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                 <option value="">Выберите вариант...</option>
                 <option value="yes">Я буду! 🐇</option>
                 <option value="no">К сожалению, не смогу 😔</option>
             </select>
-            <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
 
-            <div style="text-align:left; padding:0.5rem 0;">
-                <p style="margin-bottom:0.5rem; font-weight:500; color:var(--text);">🌙 Желаете остаться с ночёвкой?</p>
-                <div class="rsvp-radio-group">
-                    <label><input type="radio" name="overnight" value="yes"> Да, хотим остаться</label>
-                    <label><input type="radio" name="overnight" value="no" checked> Нет, уедем после праздника</label>
+            <!-- Аллергия -->
+            <div class="form-section">
+                <span class="form-section-label">🥜 Есть ли у вас аллергия или пищевые ограничения?</span>
+                <select id="guestAllergy" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
+                    <option value="">Выберите вариант...</option>
+                    <option value="none">Нет, всё отлично</option>
+                    <option value="yes">Да, есть аллергия / ограничения</option>
+                </select>
+                <input type="text" id="guestAllergyDetails" placeholder="Опишите, на что именно аллергия" style="display:none; padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%; margin-top:0.5rem;">
+            </div>
+
+            <!-- Напитки -->
+            <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам (для взрослых)" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+
+            <!-- Дети -->
+            <div class="form-section">
+                <span class="form-section-label">👶 Будут ли с вами дети?</span>
+                <select id="hasChildren" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
+                    <option value="no">Нет, без детей</option>
+                    <option value="yes">Да, со мной будут дети</option>
+                </select>
+                
+                <div class="children-fields" id="childrenFields">
+                    <input type="text" id="childrenNames" placeholder="Имена и возраст детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <input type="text" id="childrenDrink" placeholder="Напитки для детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+                    <div>
+                        <span style="font-size:0.95rem; color:var(--text-light); display:block; margin-bottom:0.3rem;">Аллергия у детей (если есть):</span>
+                        <input type="text" id="childrenAllergy" placeholder="Опишите аллергию у детей" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
+                    </div>
                 </div>
+            </div>
+
+            <!-- Ночевка -->
+            <div class="form-section">
+                <span class="form-section-label">🌙 Желаете остаться с ночёвкой?</span>
+                <select id="overnight" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white; width:100%;">
+                    <option value="no">Нет, уедем после праздника</option>
+                    <option value="yes">Да, хотим остаться</option>
+                </select>
             </div>
 
             <button type="submit" class="btn primary">Отправить</button>
@@ -822,15 +863,44 @@
 
     createFloatingHearts();
 
+    // Показать/скрыть поле аллергии
+    document.getElementById('guestAllergy').addEventListener('change', function() {
+        const detailsField = document.getElementById('guestAllergyDetails');
+        if (this.value === 'yes') {
+            detailsField.style.display = 'block';
+        } else {
+            detailsField.style.display = 'none';
+            detailsField.value = '';
+        }
+    });
+
+    // Показать/скрыть поля для детей
+    document.getElementById('hasChildren').addEventListener('change', function() {
+        const childrenFields = document.getElementById('childrenFields');
+        if (this.value === 'yes') {
+            childrenFields.classList.add('show');
+        } else {
+            childrenFields.classList.remove('show');
+            document.getElementById('childrenNames').value = '';
+            document.getElementById('childrenDrink').value = '';
+            document.getElementById('childrenAllergy').value = '';
+        }
+    });
+
     // Обработчик формы
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
         const name = document.getElementById('guestName').value.trim();
         const choice = document.getElementById('rsvpChoice').value;
+        const allergy = document.getElementById('guestAllergy').value;
+        const allergyDetails = document.getElementById('guestAllergyDetails').value.trim();
         const drink = document.getElementById('guestDrink').value.trim();
-        const overnightRadio = document.querySelector('input[name="overnight"]:checked');
-        const overnight = overnightRadio ? overnightRadio.value : 'no';
+        const hasChildren = document.getElementById('hasChildren').value;
+        const childrenNames = document.getElementById('childrenNames').value.trim();
+        const childrenDrink = document.getElementById('childrenDrink').value.trim();
+        const childrenAllergy = document.getElementById('childrenAllergy').value.trim();
+        const overnight = document.getElementById('overnight').value;
 
         if (!name || !choice) {
             alert('Пожалуйста, заполните имя и выберите вариант ответа');
@@ -839,12 +909,34 @@
 
         const emoji = choice === 'yes' ? '🐇' : '😔';
         const status = choice === 'yes' ? 'Я буду!' : 'К сожалению, не смогу прийти';
+        
+        // Аллергия
+        let allergyText = 'Нет';
+        if (allergy === 'yes' && allergyDetails) {
+            allergyText = `Да: ${allergyDetails}`;
+        } else if (allergy === 'yes') {
+            allergyText = 'Да (не указано)';
+        }
+
+        // Дети
+        let childrenText = 'Нет';
+        if (hasChildren === 'yes') {
+            childrenText = `Да: ${childrenNames || 'не указаны'}`;
+            if (childrenDrink) childrenText += `\n  Напитки детям: ${childrenDrink}`;
+            if (childrenAllergy) childrenText += `\n  Аллергия у детей: ${childrenAllergy}`;
+        }
+
+        // Ночевка
         const overnightText = overnight === 'yes' ? 'Да, хотим остаться с ночёвкой 🌙' : 'Нет, уедем после праздника';
         
-        let message = `${emoji} Приглашение на свадьбу Семёна и Маши\n\nИмя: ${name}\nСтатус: ${status}`;
-        if (drink) message += `\nПредпочтения по напиткам: ${drink}`;
-        message += `\nНочевка: ${overnightText}`;
-        message += `\n\nДата: 06.09.2026\nАдрес: Волгоград, ул. Джамбула Джабаева, 44/107`;
+        let message = `${emoji} Приглашение на свадьбу Семёна и Маши\n\n`;
+        message += `Имя: ${name}\n`;
+        message += `Статус: ${status}\n`;
+        message += `Аллергия/ограничения: ${allergyText}\n`;
+        if (drink) message += `Напитки (взрослые): ${drink}\n`;
+        message += `Дети: ${childrenText}\n`;
+        message += `Ночевка: ${overnightText}\n`;
+        message += `\nДата: 06.09.2026\nАдрес: Волгоград, ул. Джамбула Джабаева, 44/107`;
 
         document.getElementById('modalTitle').textContent = choice === 'yes' ? 'Как чудесно! 🐇' : 'Очень жаль 😔';
         document.getElementById('modalMessage').textContent = 'Выберите способ отправки:';
