@@ -15,38 +15,36 @@
         }
 
         body {
-            background: #e8f4f8;
+            background: #fdf7f2;
             font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
             padding: 1rem;
-            color: #2c3e50;
+            color: #3d3530;
         }
 
         .invite {
             max-width: 420px;
             width: 100%;
-            background: #ffffff;
+            background: #fff5f0;
             border-radius: 3rem;
-            box-shadow: 0 20px 40px rgba(100, 180, 210, 0.12), 0 8px 20px rgba(0, 0, 0, 0.04);
+            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.08), 0 8px 20px rgba(0, 0, 0, 0.05);
             overflow: hidden;
             position: relative;
             margin: 1rem 0;
-            border: 1px solid rgba(135, 190, 210, 0.25);
+            border: 1px solid rgba(0, 122, 255, 0.1);
         }
 
         :root {
-            --accent: #5b9db5;
-            --accent-soft: #7bb5cc;
-            --accent-light: #c3dfe8;
-            --bg: #f6fafc;
-            --text: #2c3e50;
-            --text-light: #5a7d8c;
-            --border: #d4e5ee;
-            --gold: #c9b87c;
-            --white-smoke: #f5f2ed;
+            --accent: #007AFF;
+            --accent-soft: #4da3ff;
+            --bg: #FFF5F0;
+            --text: #3d3530;
+            --text-light: #6b5e58;
+            --border: #eddcd4;
+            --gold: #b3806a;
         }
 
         section {
@@ -102,19 +100,15 @@
         }
 
         @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .nav {
             display: flex;
             justify-content: space-around;
             padding: 0.8rem 0.5rem;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
             position: sticky;
@@ -142,7 +136,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: linear-gradient(180deg, #ffffff 0%, #f0f7fa 100%);
+            background: linear-gradient(180deg, #fff5f0 0%, #fff0ea 100%);
         }
 
         .hero-names {
@@ -159,7 +153,7 @@
             margin: 0 0.4rem;
             font-style: italic;
             font-weight: 400;
-            color: var(--gold);
+            color: #b3806a;
         }
 
         .hero-date-big {
@@ -184,13 +178,12 @@
         .polaroid {
             background: white;
             padding: 0.5rem 0.5rem 1.8rem;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             border-radius: 4px;
             transform: rotate(-2deg);
             width: 130px;
             height: 150px;
             overflow: hidden;
-            border: 1px solid var(--border);
         }
 
         .polaroid.right {
@@ -205,12 +198,11 @@
         }
 
         .invite-text {
-            background: var(--bg);
+            background: white;
             margin: 1rem;
             border-radius: 2.5rem;
             padding: 2rem 1.8rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
-            border: 1px solid var(--border);
         }
 
         .calendar-grid {
@@ -224,7 +216,7 @@
         .cal-day {
             padding: 0.5rem 0;
             border-radius: 50%;
-            color: #a0b8c2;
+            color: #a3968c;
         }
 
         .cal-day.highlight {
@@ -234,7 +226,7 @@
         }
 
         .btn {
-            background: white;
+            background: transparent;
             border: 1.5px solid var(--accent);
             color: var(--accent);
             padding: 0.8rem 1.5rem;
@@ -245,6 +237,7 @@
             width: 100%;
             margin-top: 1rem;
             transition: all 0.2s;
+            background: white;
             letter-spacing: 0.3px;
         }
 
@@ -262,7 +255,7 @@
         }
 
         .btn.primary:hover {
-            background: #4a8a9e;
+            background: #0066d6;
         }
 
         .address-box {
@@ -275,7 +268,6 @@
             align-items: flex-start;
             gap: 0.8rem;
             font-size: 0.95rem;
-            border: 1px solid var(--border);
         }
 
         .address-box .icon {
@@ -306,7 +298,6 @@
             gap: 0.8rem;
             text-align: left;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
-            border: 1px solid var(--border);
         }
 
         .countdown {
@@ -344,7 +335,7 @@
             text-decoration: none;
             display: block;
             font-weight: 500;
-            box-shadow: 0 8px 18px rgba(91, 157, 181, 0.35);
+            box-shadow: 0 8px 18px rgba(0, 122, 255, 0.35);
             letter-spacing: 0.4px;
         }
 
@@ -355,7 +346,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -372,7 +363,7 @@
             text-align: center;
             max-width: 320px;
             width: 90%;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .messenger-dialog h3 {
@@ -392,8 +383,8 @@
             gap: 0.8rem;
         }
 
-        .btn-wa {
-            background: #25D366;
+        .btn-max {
+            background: #007AFF;
             color: white;
             border: none;
             padding: 1rem;
@@ -403,8 +394,12 @@
             font-weight: 500;
         }
 
+        .btn-max:hover {
+            background: #0066d6;
+        }
+
         .btn-tg {
-            background: #5b9db5;
+            background: #0088cc;
             color: white;
             border: none;
             padding: 1rem;
@@ -412,6 +407,16 @@
             font-size: 1rem;
             cursor: pointer;
             font-weight: 500;
+        }
+
+        .btn-tg:hover {
+            background: #0077b5;
+        }
+
+        .copy-hint {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 0.5rem;
         }
 
         .map-link {
@@ -423,7 +428,7 @@
             cursor: pointer;
         }
 
-        /* Стили для дресс-кода */
+        /* Дресс-код */
         .dress-colors {
             display: flex;
             gap: 1.2rem;
@@ -439,13 +444,6 @@
             border-radius: 50%;
             border: 2px solid white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .dress-color.red-accent {
-            width: 32px;
-            height: 32px;
-            border: 2px dashed #c0392b;
-            margin-left: 0.5rem;
         }
 
         .dress-note {
@@ -470,7 +468,7 @@
 <body>
 <div class="invite">
 
-    <!-- Бегущая строка с датой -->
+    <!-- Бегущая строка -->
     <div class="ticker">
         <div class="ticker-track">
             <span class="ticker-item">06.09.2026 · Наша свадьба</span>
@@ -502,7 +500,7 @@
             Маша <span class="hero-amp">&</span> Семён
         </div>
         <div class="hero-date-big">06 · 09 · 2026</div>
-        <p style="font-style:italic; color: var(--gold);">Не прошло и 6 лет</p>
+        <p style="font-style:italic; color:#b3806a;">Не прошло и 6 лет</p>
         <p style="font-size:0.85rem; margin-top:0.3rem; color: var(--accent-soft);">✨ Алиса в стране чудес ✨</p>
     </section>
 
@@ -548,7 +546,7 @@
         </div>
         <p style="font-size:0.9rem; margin-bottom:0.5rem;">Волгоградская область</p>
         <a class="map-link" href="https://yandex.ru/maps/?text=Волгоград,+ул.+Джамбула+Джабаева,+44/107" target="_blank">🗺️ Открыть в Яндекс.Картах</a>
-        <div style="margin-top:1rem; border-radius:2rem; overflow:hidden; height:200px; background:#e8f4f8;">
+        <div style="margin-top:1rem; border-radius:2rem; overflow:hidden; height:200px; background:#eee;">
             <iframe src="https://yandex.ru/map-widget/v1/?text=Волгоград,%20ул.%20Джамбула%20Джабаева,%2044/107&z=16&lang=ru_RU" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
@@ -579,7 +577,7 @@
             <span>Девушкам можно добавить <strong style="color:#c0392b;">красную деталь</strong> — ленту, цветок, помаду, аксессуар</span>
         </div>
 
-        <p style="font-size:0.85rem; font-style:italic; color: var(--gold); margin-top:1rem;">🐇 Следуйте за белым кроликом!</p>
+        <p style="font-size:0.85rem; font-style:italic; color: #b3806a; margin-top:1rem;">🐇 Следуйте за белым кроликом!</p>
     </section>
 
     <!-- Вишлист -->
@@ -641,13 +639,15 @@
         <h3 id="modalTitle">Чудесно! 🐇</h3>
         <p id="modalMessage">Куда отправить сообщение?</p>
         <div class="messenger-buttons">
-            <button class="btn-wa" onclick="sendToMessenger('whatsapp')">💬 WhatsApp</button>
-            <button class="btn-tg" onclick="sendToMessenger('telegram')">✈️ Telegram</button>
+            <button class="btn-max" onclick="sendToMax()">💙 MAX</button>
+            <button class="btn-tg" onclick="sendToTelegram()">✈️ Telegram</button>
         </div>
+        <p class="copy-hint">Текст скопирован — после перехода вставьте его в чат</p>
     </div>
 </div>
 
 <script>
+    const maxLink = 'https://max.ru/u/f9LHodD0cOLJ29qB5Nb4keArmuk861i9TlQLeqZi-_wc87klR5iTckHprV0';
     const phoneNumber = '79616982347';
     let pendingMessage = '';
 
@@ -664,41 +664,48 @@
             return;
         }
 
-        // Формируем сообщение
         const emoji = choice === 'yes' ? '🐇' : '😔';
         const status = choice === 'yes' ? 'Я буду!' : 'К сожалению, не смогу прийти';
         let message = `${emoji} Приглашение на свадьбу\nИмя: ${name}\nСтатус: ${status}`;
+        if (drink) message += `\nПо напиткам: ${drink}`;
 
-        if (drink) {
-            message += `\nПо напиткам: ${drink}`;
-        }
-
-        // Меняем заголовок в зависимости от выбора
-        if (choice === 'yes') {
-            document.getElementById('modalTitle').textContent = 'Как чудесно! 🐇';
-            document.getElementById('modalMessage').textContent = 'Выберите мессенджер, чтобы подтвердить:';
-        } else {
-            document.getElementById('modalTitle').textContent = 'Очень жаль 😔';
-            document.getElementById('modalMessage').textContent = 'Выберите мессенджер, чтобы сообщить:';
-        }
-
+        document.getElementById('modalTitle').textContent = choice === 'yes' ? 'Как чудесно! 🐇' : 'Очень жаль 😔';
+        document.getElementById('modalMessage').textContent = 'Выберите мессенджер для отправки:';
         pendingMessage = message;
         document.getElementById('messengerModal').classList.add('show');
     });
 
-    function sendToMessenger(app) {
-        let url = '';
-
-        if (app === 'whatsapp') {
-            url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(pendingMessage)}`;
-        } else if (app === 'telegram') {
-            url = `https://t.me/+${phoneNumber}?text=${encodeURIComponent(pendingMessage)}`;
+    function copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
         }
+        // Фолбэк для старых браузеров
+        return new Promise((resolve) => {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            resolve();
+        });
+    }
 
+    async function sendToMax() {
+        await copyToClipboard(pendingMessage);
+        document.getElementById('messengerModal').classList.remove('show');
+        window.open(maxLink, '_blank');
+    }
+
+    function sendToTelegram() {
+        const url = `https://t.me/+${phoneNumber}?text=${encodeURIComponent(pendingMessage)}`;
         document.getElementById('messengerModal').classList.remove('show');
         window.open(url, '_blank');
     }
 
+    // Закрытие модального окна при клике вне диалога
     document.getElementById('messengerModal').addEventListener('click', function(e) {
         if (e.target === this) {
             this.classList.remove('show');
@@ -709,7 +716,7 @@
     const weddingDate = new Date(2026, 8, 6, 15, 0, 0).getTime();
 
     function updateCountdown() {
-        const now = new Date().getTime();
+        const now = Date.now();
         const distance = weddingDate - now;
 
         if (distance < 0) {
@@ -720,15 +727,10 @@
             return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerText = days;
-        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-        document.getElementById('mins').innerText = minutes.toString().padStart(2, '0');
-        document.getElementById('secs').innerText = seconds.toString().padStart(2, '0');
+        document.getElementById('days').innerText = Math.floor(distance / 86400000);
+        document.getElementById('hours').innerText = String(Math.floor((distance % 86400000) / 3600000)).padStart(2, '0');
+        document.getElementById('mins').innerText = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+        document.getElementById('secs').innerText = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
     }
 
     setInterval(updateCountdown, 1000);
