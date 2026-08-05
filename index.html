@@ -129,7 +129,6 @@
             color: var(--accent);
         }
 
-        /* Плавающие сердечки */
         .floating-hearts {
             position: fixed;
             top: 0;
@@ -338,10 +337,11 @@
         .timeline-item {
             display: flex;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             text-align: left;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            align-items: flex-start;
         }
 
         .time {
@@ -350,20 +350,40 @@
             min-width: 50px;
             font-size: 1.2rem;
             font-style: italic;
+            flex-shrink: 0;
+        }
+
+        .timeline-note {
+            background: #fff5f0;
+            border-radius: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            border: 1px dashed var(--border);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.7;
         }
 
         .wish-card {
             background: white;
             border-radius: 1.8rem;
-            padding: 1.3rem;
+            padding: 1.5rem;
             margin: 1rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
             text-align: left;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .wish-card .wish-emoji {
+            font-size: 2rem;
+            flex-shrink: 0;
         }
 
         .countdown {
@@ -541,7 +561,6 @@
             display: inline-block;
         }
 
-        /* Декоративные элементы */
         .decorative-heart {
             font-size: 1.5rem;
             opacity: 0.3;
@@ -557,6 +576,30 @@
         input, select {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1rem;
+        }
+
+        .rsvp-radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            text-align: left;
+            padding: 0.5rem 0;
+        }
+
+        .rsvp-radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .rsvp-radio-group input[type="radio"] {
+            accent-color: var(--accent);
+            width: 1.1rem;
+            height: 1.1rem;
         }
     </style>
 </head>
@@ -612,7 +655,7 @@
         <p style="margin-top:1rem;">Следуйте за белым кроликом в мир волшебства, где сбываются мечты. Обещаем атмосферу сказки, улыбок и душевных разговоров. <span class="decorative-heart">♥</span></p>
     </section>
 
-    <!-- Календарь -->
+    <!-- Календарь + Тайминг -->
     <section id="schedule">
         <h2>Сентябрь 2026</h2>
         <div class="calendar-grid">
@@ -628,10 +671,17 @@
 
         <div style="margin-top: 2.5rem;">
             <h2>Тайминг дня</h2>
-            <div class="timeline-item"><span class="time">14:00</span> Сбор гостей, приветственный коктейль</div>
-            <div class="timeline-item"><span class="time">15:00</span> Выездная церемония</div>
-            <div class="timeline-item"><span class="time">16:00</span> Фотосессия и прогулка</div>
-            <div class="timeline-item"><span class="time">17:30</span> Праздничный банкет</div>
+            <div class="timeline-item"><span class="time">17:00</span> Сбор гостей на точке</div>
+            <div class="timeline-item"><span class="time">17:30</span> Начало программы, ведущий (4 часа)</div>
+            <div class="timeline-item"><span class="time">18:00</span> DJ-сет (5 часов музыки)</div>
+            <div class="timeline-item"><span class="time">22:00–23:00</span> Ориентировочный разъезд</div>
+        </div>
+
+        <div class="timeline-note">
+            <p style="margin-bottom:0.5rem;">💡 <strong>Важная информация:</strong></p>
+            <p>Раньше 17:00 можно приехать, только если хотите помочь с подготовкой. <em>Не советуем!</em> 😄</p>
+            <p style="margin-top:0.5rem;">Разъезд ориентировочно в 22:00–23:00 — увы, кому-то на следующий день на работу.</p>
+            <p style="margin-top:0.5rem;">🌙 <strong>Кто-то может остаться с нами с ночёвкой</strong> — укажите это в анкете ниже.</p>
         </div>
     </section>
 
@@ -686,16 +736,8 @@
         <h2>Что дарить</h2>
         <p>Мы составили небольшой список желаний, чтобы не мучить вас догадками.</p>
         <div class="wish-card">
-            <span>🍽️ <strong>Сертификат на ужин</strong></span>
-            <button class="btn" style="width:auto; padding:0.4rem 1.5rem;">Забронировать</button>
-        </div>
-        <div class="wish-card">
-            <span>📸 <strong>Фотосессия love-story</strong></span>
-            <button class="btn" style="width:auto; padding:0.4rem 1.5rem;">Забронировать</button>
-        </div>
-        <div class="wish-card">
-            <span>✈️ <strong>Путешествие в Карелию</strong></span>
-            <button class="btn" style="width:auto; padding:0.4rem 1.5rem;">Забронировать</button>
+            <span class="wish-emoji">🍷</span>
+            <span><strong>Вино, которое нужно выпить на определённый праздник</strong><br><span style="font-size:0.9rem; color: var(--text-light);">Белое сладкое или полусладкое</span></span>
         </div>
     </section>
 
@@ -711,6 +753,15 @@
                 <option value="no">К сожалению, не смогу 😔</option>
             </select>
             <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+
+            <div style="text-align:left; padding:0.5rem 0;">
+                <p style="margin-bottom:0.5rem; font-weight:500; color:var(--text);">🌙 Желаете остаться с ночёвкой?</p>
+                <div class="rsvp-radio-group">
+                    <label><input type="radio" name="overnight" value="yes"> Да, хотим остаться</label>
+                    <label><input type="radio" name="overnight" value="no" checked> Нет, уедем после праздника</label>
+                </div>
+            </div>
+
             <button type="submit" class="btn primary">Отправить</button>
         </form>
     </section>
@@ -778,6 +829,8 @@
         const name = document.getElementById('guestName').value.trim();
         const choice = document.getElementById('rsvpChoice').value;
         const drink = document.getElementById('guestDrink').value.trim();
+        const overnightRadio = document.querySelector('input[name="overnight"]:checked');
+        const overnight = overnightRadio ? overnightRadio.value : 'no';
 
         if (!name || !choice) {
             alert('Пожалуйста, заполните имя и выберите вариант ответа');
@@ -786,8 +839,11 @@
 
         const emoji = choice === 'yes' ? '🐇' : '😔';
         const status = choice === 'yes' ? 'Я буду!' : 'К сожалению, не смогу прийти';
+        const overnightText = overnight === 'yes' ? 'Да, хотим остаться с ночёвкой 🌙' : 'Нет, уедем после праздника';
+        
         let message = `${emoji} Приглашение на свадьбу Семёна и Маши\n\nИмя: ${name}\nСтатус: ${status}`;
         if (drink) message += `\nПредпочтения по напиткам: ${drink}`;
+        message += `\nНочевка: ${overnightText}`;
         message += `\n\nДата: 06.09.2026\nАдрес: Волгоград, ул. Джамбула Джабаева, 44/107`;
 
         document.getElementById('modalTitle').textContent = choice === 'yes' ? 'Как чудесно! 🐇' : 'Очень жаль 😔';
