@@ -15,16 +15,21 @@
             min-height: 100vh; padding: 1rem; color: #3d3530; overflow-x: hidden;
         }
         .invite {
-            max-width: 440px; width: 100%; background: #fff5f0; border-radius: 3rem;
+            max-width: 480px; width: 100%; background: #fff5f0; border-radius: 3rem;
             box-shadow: 0 20px 40px rgba(190,0,38,0.08), 0 8px 20px rgba(0,0,0,0.05);
             overflow: hidden; position: relative; margin: 1rem 0;
             border: 1px solid rgba(190,0,38,0.1);
+        }
+        @media (min-width: 768px) {
+            .invite { max-width: 520px; border-radius: 3.5rem; }
+            body { padding: 2rem; }
         }
         :root {
             --accent: #BE0026; --accent-soft: #d94e5d; --bg: #FFF5F0;
             --text: #3d3530; --text-light: #6b5e58; --border: #eddcd4; --gold: #b3806a;
         }
         section { padding: 2rem 1.8rem; text-align: center; position: relative; }
+        @media (min-width: 768px) { section { padding: 2.5rem 2.5rem; } }
         h2 {
             font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 500;
             color: var(--accent); margin-bottom: 1.2rem; line-height: 1.1;
@@ -49,6 +54,7 @@
             font-size: 0.75rem; font-weight: 500; letter-spacing: 0.5px;
             text-transform: uppercase; font-family: 'Inter', sans-serif;
         }
+        @media (min-width: 768px) { .nav { justify-content: center; gap: 2rem; font-size: 0.85rem; } }
         .nav a { text-decoration: none; color: var(--text); padding: 0.3rem 0.2rem; transition: color 0.2s; }
         .nav a:hover { color: var(--accent); }
         .floating-hearts {
@@ -69,6 +75,7 @@
             align-items: center; background: linear-gradient(180deg, #fff5f0 0%, #fff0ea 100%);
             position: relative; z-index: 1;
         }
+        @media (min-width: 768px) { .hero { padding: 2.5rem 2rem 3rem; } }
         .hero-names {
             font-family: 'Cormorant Garamond', serif; font-size: 3.5rem;
             color: var(--accent); margin: 1rem 0 0.5rem; line-height: 1.2;
@@ -88,6 +95,7 @@
             width: 135px; height: 155px; overflow: hidden; position: relative;
             animation: floatPhoto 4s ease-in-out infinite;
         }
+        @media (min-width: 768px) { .polaroid { width: 150px; height: 175px; } }
         .polaroid.right { animation-delay: 1.5s; }
         @keyframes floatPhoto {
             0%,100% { transform: translateY(0) rotate(-1deg); }
@@ -99,14 +107,16 @@
             padding: 2rem 1.8rem; box-shadow: 0 5px 20px rgba(0,0,0,0.02);
             position: relative; z-index: 1; text-align: left;
         }
+        @media (min-width: 768px) { .story-box { margin: 1.5rem; padding: 2.5rem; } }
         .story-box p { margin-bottom: 1rem; }
         .calendar-grid {
             display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px;
             margin: 1.5rem auto; font-size: 0.9rem; font-family: 'Cormorant Garamond', serif;
-            max-width: 300px; background: white; border-radius: 2rem;
+            max-width: 320px; background: white; border-radius: 2rem;
             padding: 1.5rem 1rem; box-shadow: 0 3px 12px rgba(0,0,0,0.03);
             border: 1px solid var(--border);
         }
+        @media (min-width: 768px) { .calendar-grid { max-width: 360px; padding: 1.8rem 1.5rem; } }
         .calendar-grid .dow { font-weight: 600; color: var(--accent); font-size: 0.7rem; padding: 0.3rem 0; text-transform: uppercase; }
         .calendar-grid .day {
             aspect-ratio: 1; display: flex; align-items: center; justify-content: center;
@@ -117,11 +127,11 @@
             font-size: 1rem; position: relative;
         }
         .calendar-grid .day.highlight::after {
-            content: '♥'; position: absolute; font-size: 2rem; color: var(--accent);
+            content: '♥'; position: absolute; font-size: 2.2rem; color: var(--accent);
             animation: heartPulse 1.2s infinite; z-index: -1; opacity: 0.7;
         }
         @keyframes heartPulse {
-            0%,100% { transform: scale(0.8); opacity: 0.5; }
+            0%,100% { transform: scale(0.7); opacity: 0.4; }
             50% { transform: scale(1.3); opacity: 0.9; }
         }
         .calendar-grid .day.empty { visibility: hidden; }
@@ -130,8 +140,9 @@
             padding: 0.8rem 1.5rem; border-radius: 3rem; font-weight: 500;
             font-size: 1rem; cursor: pointer; width: 100%; margin-top: 1rem;
             transition: all 0.3s; background: white; letter-spacing: 0.5px;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cormorant Garamond', serif; max-width: 320px; margin-left: auto; margin-right: auto; display: block;
         }
+        @media (min-width: 768px) { .btn { max-width: 360px; } }
         .btn:hover { background: var(--accent); color: white; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(190,0,38,0.2); }
         .btn.primary { background: var(--accent); color: white; border: none; padding: 0.9rem; font-size: 1.1rem; }
         .address-box {
@@ -139,22 +150,37 @@
             text-align: left; display: flex; align-items: flex-start; gap: 0.8rem;
             font-size: 1rem; font-family: 'Cormorant Garamond', serif;
         }
-        /* Тайминг — карточки */
-        .tl-cards { display: flex; flex-direction: column; gap: 0.8rem; margin: 1.5rem 0; }
-        .tl-card {
-            display: flex; align-items: center; gap: 1rem; background: white;
-            border-radius: 1.5rem; padding: 1rem 1.3rem; border: 1px solid var(--border);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        /* Road map */
+        .tl-road { position: relative; padding: 0 0 0 1.5rem; margin: 2rem 0; }
+        .tl-road::before {
+            content: ''; position: absolute; left: 12px; top: 0; bottom: 0;
+            width: 2px; background: var(--border); border-radius: 1px;
         }
-        .tl-card-time {
-            font-weight: 700; color: var(--accent); font-size: 1.2rem;
-            min-width: 55px; font-style: italic; font-family: 'Cormorant Garamond', serif;
+        .tl-stop { position: relative; margin-bottom: 2rem; padding-left: 1.5rem; }
+        .tl-stop:last-child { margin-bottom: 0; }
+        .tl-dot {
+            position: absolute; left: -4px; top: 4px;
+            width: 14px; height: 14px; background: var(--accent);
+            border-radius: 50%; z-index: 2;
+            box-shadow: 0 0 0 5px #fff5f0, 0 0 0 7px var(--border);
         }
-        .tl-card-text { font-size: 1rem; color: var(--text); font-family: 'Cormorant Garamond', serif; }
+        .tl-dot.pulse { animation: dotPulse 2s infinite; }
+        @keyframes dotPulse {
+            0%,100% { box-shadow: 0 0 0 5px #fff5f0, 0 0 0 7px var(--border); }
+            50% { box-shadow: 0 0 0 8px #fff5f0, 0 0 0 10px var(--accent-soft); }
+        }
+        .tl-time {
+            font-weight: 700; color: var(--accent); font-size: 1.3rem;
+            font-style: italic; font-family: 'Cormorant Garamond', serif; margin-bottom: 0.2rem;
+        }
+        .tl-text { font-size: 1.05rem; color: var(--text); font-family: 'Cormorant Garamond', serif; }
+        @media (min-width: 768px) {
+            .tl-road { padding: 0 2rem; max-width: 450px; margin: 2rem auto; }
+        }
         .tl-note {
             background: #fff5f0; border-radius: 1.5rem; padding: 1.2rem 1.5rem;
             text-align: left; font-size: 0.95rem; color: var(--text-light);
-            border: 1px dashed var(--border); font-family: 'Cormorant Garamond', serif;
+            border: 1px dashed var(--border); font-family: 'Cormorant Garamond', serif; margin-top: 1rem;
         }
         .wish-card {
             background: white; border-radius: 1.8rem; padding: 1.5rem; margin: 1rem 0;
@@ -182,6 +208,7 @@
             box-shadow: 0 8px 18px rgba(190,0,38,0.3); letter-spacing: 0.5px;
             font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; z-index: 2;
         }
+        @media (min-width: 768px) { .fixed-cta { max-width: 400px; margin: 0 auto 1.5rem; } }
         .messenger-choice {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6); z-index: 1000; justify-content: center; align-items: center;
@@ -245,11 +272,11 @@
         </div>
         <button class="btn">Добавить в календарь</button>
         <div style="margin-top:2.5rem;"><h2>Тайминг дня</h2></div>
-        <div class="tl-cards">
-            <div class="tl-card"><span class="tl-card-time">17:00</span><span class="tl-card-text">Сбор гостей на точке</span></div>
-            <div class="tl-card"><span class="tl-card-time">17:30</span><span class="tl-card-text">Начало программы, ведущий (4 часа)</span></div>
-            <div class="tl-card"><span class="tl-card-time">18:00</span><span class="tl-card-text">DJ-сет (5 часов музыки)</span></div>
-            <div class="tl-card"><span class="tl-card-time">22–23</span><span class="tl-card-text">Ориентировочный разъезд</span></div>
+        <div class="tl-road">
+            <div class="tl-stop"><div class="tl-dot pulse"></div><div class="tl-time">17:00</div><div class="tl-text">Сбор гостей на точке</div></div>
+            <div class="tl-stop"><div class="tl-dot"></div><div class="tl-time">17:30</div><div class="tl-text">Начало программы, ведущий (4 часа)</div></div>
+            <div class="tl-stop"><div class="tl-dot"></div><div class="tl-time">18:00</div><div class="tl-text">DJ-сет (5 часов музыки)</div></div>
+            <div class="tl-stop"><div class="tl-dot"></div><div class="tl-time">22–23</div><div class="tl-text">Ориентировочный разъезд</div></div>
         </div>
         <div class="tl-note">
             <p>💡 Раньше 17:00 — только если хотите помочь. <em>Не советуем!</em> 😄</p>
