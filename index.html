@@ -6,7 +6,7 @@
     <title>Семён & Маша — Приглашение на свадьбу</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,13 +16,14 @@
 
         body {
             background: #fdf7f2;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Cormorant Garamond', 'Inter', serif;
             display: flex;
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
             padding: 1rem;
             color: #3d3530;
+            overflow-x: hidden;
         }
 
         .invite {
@@ -30,16 +31,16 @@
             width: 100%;
             background: #fff5f0;
             border-radius: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.08), 0 8px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 20px 40px rgba(190, 0, 38, 0.08), 0 8px 20px rgba(0, 0, 0, 0.05);
             overflow: hidden;
             position: relative;
             margin: 1rem 0;
-            border: 1px solid rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(190, 0, 38, 0.1);
         }
 
         :root {
-            --accent: #007AFF;
-            --accent-soft: #4da3ff;
+            --accent: #BE0026;
+            --accent-soft: #d94e5d;
             --bg: #FFF5F0;
             --text: #3d3530;
             --text-light: #6b5e58;
@@ -50,31 +51,26 @@
         section {
             padding: 2rem 1.8rem;
             text-align: center;
+            position: relative;
         }
 
         h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.6rem;
-            font-weight: 400;
+            font-size: 2.8rem;
+            font-weight: 500;
             color: var(--accent);
             margin-bottom: 1.2rem;
             line-height: 1.1;
             letter-spacing: 0.5px;
-        }
-
-        .subtitle {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--text-light);
-            margin-bottom: 1.8rem;
             font-style: italic;
         }
 
         p {
             color: var(--text-light);
-            line-height: 1.7;
-            font-weight: 300;
-            font-size: 1rem;
+            line-height: 1.8;
+            font-weight: 400;
+            font-size: 1.1rem;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .ticker {
@@ -82,11 +78,12 @@
             color: white;
             padding: 0.5rem 0;
             font-size: 0.8rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             overflow: hidden;
             white-space: nowrap;
             font-weight: 400;
+            font-family: 'Inter', sans-serif;
         }
 
         .ticker-track {
@@ -118,6 +115,7 @@
             font-weight: 500;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
         }
 
         .nav a {
@@ -131,25 +129,65 @@
             color: var(--accent);
         }
 
+        /* Плавающие сердечки */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.2rem;
+            opacity: 0.15;
+            animation: floatUp 8s infinite ease-in;
+            color: var(--accent);
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.15;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
         .hero {
             padding: 1.8rem 1.5rem 2.2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             background: linear-gradient(180deg, #fff5f0 0%, #fff0ea 100%);
+            position: relative;
+            z-index: 1;
         }
 
         .hero-names {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             color: var(--accent);
             margin: 1rem 0 0.5rem;
             line-height: 1.2;
             font-weight: 600;
+            font-style: italic;
         }
 
         .hero-amp {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin: 0 0.4rem;
             font-style: italic;
             font-weight: 400;
@@ -157,14 +195,16 @@
         }
 
         .hero-date-big {
-            font-size: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
             color: var(--text);
             margin: 1rem 0;
-            font-weight: 300;
-            letter-spacing: 1px;
+            font-weight: 400;
+            letter-spacing: 2px;
             border-top: 1px dashed var(--border);
             padding-top: 1.2rem;
             display: inline-block;
+            font-style: italic;
         }
 
         .hero-photos {
@@ -173,6 +213,7 @@
             justify-content: center;
             margin: 1.5rem 0 0.5rem;
             width: 100%;
+            position: relative;
         }
 
         .polaroid {
@@ -180,14 +221,24 @@
             padding: 0.5rem 0.5rem 1.8rem;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
             border-radius: 4px;
-            transform: rotate(-2deg);
-            width: 130px;
-            height: 150px;
+            width: 135px;
+            height: 155px;
             overflow: hidden;
+            position: relative;
+            animation: floatPhoto 4s ease-in-out infinite;
         }
 
         .polaroid.right {
-            transform: rotate(3deg);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes floatPhoto {
+            0%, 100% {
+                transform: translateY(0) rotate(-1deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(1deg);
+            }
         }
 
         .polaroid img {
@@ -203,6 +254,8 @@
             border-radius: 2.5rem;
             padding: 2rem 1.8rem;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+            position: relative;
+            z-index: 1;
         }
 
         .calendar-grid {
@@ -210,7 +263,8 @@
             grid-template-columns: repeat(7, 1fr);
             gap: 0.3rem;
             margin: 1.5rem 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .cal-day {
@@ -232,18 +286,21 @@
             padding: 0.8rem 1.5rem;
             border-radius: 3rem;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 1rem;
             cursor: pointer;
             width: 100%;
             margin-top: 1rem;
-            transition: all 0.2s;
+            transition: all 0.3s;
             background: white;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.5px;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .btn:hover {
             background: var(--accent);
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(190, 0, 38, 0.2);
         }
 
         .btn.primary {
@@ -251,11 +308,13 @@
             color: white;
             border: none;
             padding: 0.9rem;
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .btn.primary:hover {
-            background: #0066d6;
+            background: #a3001f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(190, 0, 38, 0.3);
         }
 
         .address-box {
@@ -267,7 +326,8 @@
             display: flex;
             align-items: flex-start;
             gap: 0.8rem;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .address-box .icon {
@@ -280,38 +340,52 @@
             gap: 1rem;
             margin-bottom: 1.5rem;
             text-align: left;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
         }
 
         .time {
             font-weight: 600;
             color: var(--accent);
-            min-width: 45px;
+            min-width: 50px;
+            font-size: 1.2rem;
+            font-style: italic;
         }
 
         .wish-card {
             background: white;
             border-radius: 1.8rem;
-            padding: 1.2rem;
+            padding: 1.3rem;
             margin: 1rem 0;
             display: flex;
             flex-direction: column;
             gap: 0.8rem;
             text-align: left;
             box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
+            gap: 1.5rem;
             margin: 1.8rem 0;
         }
 
         .cd-num {
-            font-size: 2.4rem;
-            font-weight: 300;
+            font-size: 2.8rem;
+            font-weight: 500;
             color: var(--accent);
             font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .cd-lbl {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
         }
 
         .footer {
@@ -320,7 +394,7 @@
             padding: 2rem;
             font-style: italic;
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
 
         .fixed-cta {
@@ -335,8 +409,11 @@
             text-decoration: none;
             display: block;
             font-weight: 500;
-            box-shadow: 0 8px 18px rgba(0, 122, 255, 0.35);
-            letter-spacing: 0.4px;
+            box-shadow: 0 8px 18px rgba(190, 0, 38, 0.3);
+            letter-spacing: 0.5px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            z-index: 2;
         }
 
         .messenger-choice {
@@ -361,20 +438,23 @@
             border-radius: 2rem;
             padding: 2rem;
             text-align: center;
-            max-width: 320px;
+            max-width: 340px;
             width: 90%;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .messenger-dialog h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
             color: var(--accent);
+            font-style: italic;
         }
 
         .messenger-dialog p {
             margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .messenger-buttons {
@@ -383,19 +463,20 @@
             gap: 0.8rem;
         }
 
-        .btn-max {
-            background: #007AFF;
+        .btn-email {
+            background: var(--accent);
             color: white;
             border: none;
             padding: 1rem;
             border-radius: 3rem;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .btn-max:hover {
-            background: #0066d6;
+        .btn-email:hover {
+            background: #a3001f;
         }
 
         .btn-tg {
@@ -404,19 +485,14 @@
             border: none;
             padding: 1rem;
             border-radius: 3rem;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             font-weight: 500;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .btn-tg:hover {
             background: #0077b5;
-        }
-
-        .copy-hint {
-            font-size: 0.75rem;
-            color: #999;
-            margin-top: 0.5rem;
         }
 
         .map-link {
@@ -424,11 +500,11 @@
             margin-top: 0.8rem;
             color: var(--accent);
             text-decoration: underline;
-            font-size: 0.9rem;
+            font-size: 1rem;
             cursor: pointer;
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        /* Дресс-код */
         .dress-colors {
             display: flex;
             gap: 1.2rem;
@@ -452,8 +528,9 @@
             justify-content: center;
             gap: 0.5rem;
             margin-top: 0.8rem;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-light);
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .dress-note .dot {
@@ -463,9 +540,31 @@
             background: #c0392b;
             display: inline-block;
         }
+
+        /* Декоративные элементы */
+        .decorative-heart {
+            font-size: 1.5rem;
+            opacity: 0.3;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.3); opacity: 0.5; }
+        }
+
+        input, select {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+        }
     </style>
 </head>
 <body>
+
+<!-- Плавающие сердечки -->
+<div class="floating-hearts" id="floatingHearts"></div>
+
 <div class="invite">
 
     <!-- Бегущая строка -->
@@ -492,6 +591,8 @@
 
     <!-- Hero -->
     <section class="hero">
+        <span class="decorative-heart" style="position:absolute; top:10px; left:20px;">♥</span>
+        <span class="decorative-heart" style="position:absolute; top:30px; right:25px; animation-delay:1s;">♥</span>
         <div class="hero-photos">
             <div class="polaroid"><img src="photo1.jpg" alt="Фото пары"></div>
             <div class="polaroid right"><img src="photo2.jpg" alt="Фото пары"></div>
@@ -500,15 +601,15 @@
             Маша <span class="hero-amp">&</span> Семён
         </div>
         <div class="hero-date-big">06 · 09 · 2026</div>
-        <p style="font-style:italic; color:#b3806a;">Не прошло и 6 лет</p>
-        <p style="font-size:0.85rem; margin-top:0.3rem; color: var(--accent-soft);">✨ Алиса в стране чудес ✨</p>
+        <p style="font-style:italic; color:#b3806a; font-size:1.1rem;">Не прошло и 6 лет <span class="decorative-heart">♥</span></p>
+        <p style="font-size:0.9rem; margin-top:0.3rem; color: var(--accent-soft);">✨ Алиса в стране чудес ✨</p>
     </section>
 
     <!-- Приглашение -->
     <section class="invite-text">
         <h2>Дорогие гости</h2>
         <p>Мы прошли долгий путь длиной в 6 лет, полный нежности, поддержки и настоящей любви. Этот день станет началом нашей семейной истории, и мы будем рады разделить его с вами.</p>
-        <p style="margin-top:1rem;">Следуйте за белым кроликом в мир волшебства, где сбываются мечты. Обещаем атмосферу сказки, улыбок и душевных разговоров.</p>
+        <p style="margin-top:1rem;">Следуйте за белым кроликом в мир волшебства, где сбываются мечты. Обещаем атмосферу сказки, улыбок и душевных разговоров. <span class="decorative-heart">♥</span></p>
     </section>
 
     <!-- Календарь -->
@@ -544,7 +645,7 @@
                 ул. Джамбула Джабаева, 44/107
             </div>
         </div>
-        <p style="font-size:0.9rem; margin-bottom:0.5rem;">Волгоградская область</p>
+        <p style="font-size:1rem; margin-bottom:0.5rem;">Волгоградская область</p>
         <a class="map-link" href="https://yandex.ru/maps/?text=Волгоград,+ул.+Джамбула+Джабаева,+44/107" target="_blank">🗺️ Открыть в Яндекс.Картах</a>
         <div style="margin-top:1rem; border-radius:2rem; overflow:hidden; height:200px; background:#eee;">
             <iframe src="https://yandex.ru/map-widget/v1/?text=Волгоград,%20ул.%20Джамбула%20Джабаева,%2044/107&z=16&lang=ru_RU" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
@@ -556,7 +657,7 @@
         <h2>Дресс-код</h2>
         <p>Наша свадьба пройдёт в стиле <strong>«Алиса в Стране чудес»</strong>.</p>
         <p style="margin-top:0.5rem;">Основные цвета: <strong>белый</strong> и <strong>кремовый</strong>.</p>
-        <p style="font-size:0.9rem; color: var(--text-light);">Опционально: светло-бежевый.</p>
+        <p style="font-size:1rem; color: var(--text-light);">Опционально: светло-бежевый.</p>
 
         <div class="dress-colors">
             <span class="dress-color" style="background: #ffffff;" title="Белый"></span>
@@ -566,7 +667,7 @@
         </div>
 
         <div style="margin: 1.2rem 0 0.5rem;">
-            <p style="font-size:0.9rem; color: var(--text-light);">Опционально:</p>
+            <p style="font-size:1rem; color: var(--text-light);">Опционально:</p>
             <div class="dress-colors" style="margin-top:0.5rem;">
                 <span class="dress-color" style="background: #e8dcc8; width:36px; height:36px;" title="Светло-бежевый"></span>
             </div>
@@ -577,7 +678,7 @@
             <span>Девушкам можно добавить <strong style="color:#c0392b;">красную деталь</strong> — ленту, цветок, помаду, аксессуар</span>
         </div>
 
-        <p style="font-size:0.85rem; font-style:italic; color: #b3806a; margin-top:1rem;">🐇 Следуйте за белым кроликом!</p>
+        <p style="font-size:0.9rem; font-style:italic; color: #b3806a; margin-top:1rem;">🐇 Следуйте за белым кроликом! <span class="decorative-heart">♥</span></p>
     </section>
 
     <!-- Вишлист -->
@@ -603,13 +704,13 @@
         <h2>Подтвердите присутствие</h2>
         <p>Пожалуйста, дайте знать до <strong>23 августа</strong>.</p>
         <form id="rsvpForm" style="display:flex; flex-direction:column; gap:1rem; margin-top:1.5rem;">
-            <input type="text" id="guestName" placeholder="Ваше имя" required style="padding:0.8rem; border-radius:2rem; border:1px solid var(--border); background:white;">
-            <select id="rsvpChoice" required style="padding:0.8rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+            <input type="text" id="guestName" placeholder="Ваше имя" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+            <select id="rsvpChoice" required style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
                 <option value="">Выберите вариант...</option>
                 <option value="yes">Я буду! 🐇</option>
                 <option value="no">К сожалению, не смогу 😔</option>
             </select>
-            <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам" style="padding:0.8rem; border-radius:2rem; border:1px solid var(--border); background:white;">
+            <input type="text" id="guestDrink" placeholder="Предпочтения по напиткам" style="padding:0.9rem; border-radius:2rem; border:1px solid var(--border); background:white;">
             <button type="submit" class="btn primary">Отправить</button>
         </form>
     </section>
@@ -618,38 +719,57 @@
     <section>
         <h2>До сказки осталось</h2>
         <div class="countdown" id="countdown">
-            <div><span class="cd-num" id="days">0</span><br>дней</div>
-            <div><span class="cd-num" id="hours">00</span><br>часов</div>
-            <div><span class="cd-num" id="mins">00</span><br>минут</div>
-            <div><span class="cd-num" id="secs">00</span><br>секунд</div>
+            <div><span class="cd-num" id="days">0</span><br><span class="cd-lbl">дней</span></div>
+            <div><span class="cd-num" id="hours">00</span><br><span class="cd-lbl">часов</span></div>
+            <div><span class="cd-num" id="mins">00</span><br><span class="cd-lbl">минут</span></div>
+            <div><span class="cd-num" id="secs">00</span><br><span class="cd-lbl">секунд</span></div>
         </div>
+        <span class="decorative-heart">♥ ♥ ♥</span>
     </section>
 
     <footer class="footer">
         «Мы все здесь не в своём уме»<br>
-        <span style="font-size:1rem;">Семён & Маша</span>
+        <span style="font-size:1.1rem;">Семён & Маша</span>
     </footer>
 
-    <a href="#rsvp" class="fixed-cta">Подтвердить присутствие</a>
+    <a href="#rsvp" class="fixed-cta">Подтвердить присутствие <span style="font-size:0.9rem;">♥</span></a>
 </div>
 
-<!-- Модальное окно выбора мессенджера -->
+<!-- Модальное окно -->
 <div class="messenger-choice" id="messengerModal">
     <div class="messenger-dialog">
         <h3 id="modalTitle">Чудесно! 🐇</h3>
-        <p id="modalMessage">Куда отправить сообщение?</p>
+        <p id="modalMessage">Выберите способ отправки:</p>
         <div class="messenger-buttons">
-            <button class="btn-max" onclick="sendToMax()">💙 MAX</button>
+            <button class="btn-email" onclick="sendToEmail()">📧 Отправить на почту</button>
             <button class="btn-tg" onclick="sendToTelegram()">✈️ Telegram</button>
         </div>
-        <p class="copy-hint">Текст скопирован — после перехода вставьте его в чат</p>
     </div>
 </div>
 
 <script>
-    const maxLink = 'https://max.ru/u/f9LHodD0cOLJ29qB5Nb4keArmuk861i9TlQLeqZi-_wc87klR5iTckHprV0';
+    const emailAddress = 'barmina_2002@inbox.ru';
     const phoneNumber = '79616982347';
     let pendingMessage = '';
+
+    // Генерация плавающих сердечек
+    function createFloatingHearts() {
+        const container = document.getElementById('floatingHearts');
+        const hearts = ['♥', '♡', '❤', '🕮', '🐇'];
+        
+        for (let i = 0; i < 15; i++) {
+            const heart = document.createElement('span');
+            heart.className = 'heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 8 + 's';
+            heart.style.animationDuration = (6 + Math.random() * 10) + 's';
+            heart.style.fontSize = (0.8 + Math.random() * 2) + 'rem';
+            container.appendChild(heart);
+        }
+    }
+
+    createFloatingHearts();
 
     // Обработчик формы
     document.getElementById('rsvpForm').addEventListener('submit', function(e) {
@@ -666,37 +786,23 @@
 
         const emoji = choice === 'yes' ? '🐇' : '😔';
         const status = choice === 'yes' ? 'Я буду!' : 'К сожалению, не смогу прийти';
-        let message = `${emoji} Приглашение на свадьбу\nИмя: ${name}\nСтатус: ${status}`;
-        if (drink) message += `\nПо напиткам: ${drink}`;
+        let message = `${emoji} Приглашение на свадьбу Семёна и Маши\n\nИмя: ${name}\nСтатус: ${status}`;
+        if (drink) message += `\nПредпочтения по напиткам: ${drink}`;
+        message += `\n\nДата: 06.09.2026\nАдрес: Волгоград, ул. Джамбула Джабаева, 44/107`;
 
         document.getElementById('modalTitle').textContent = choice === 'yes' ? 'Как чудесно! 🐇' : 'Очень жаль 😔';
-        document.getElementById('modalMessage').textContent = 'Выберите мессенджер для отправки:';
+        document.getElementById('modalMessage').textContent = 'Выберите способ отправки:';
         pendingMessage = message;
         document.getElementById('messengerModal').classList.add('show');
     });
 
-    function copyToClipboard(text) {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            return navigator.clipboard.writeText(text);
-        }
-        // Фолбэк для старых браузеров
-        return new Promise((resolve) => {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            resolve();
-        });
-    }
-
-    async function sendToMax() {
-        await copyToClipboard(pendingMessage);
+    function sendToEmail() {
+        const subject = encodeURIComponent('Подтверждение — Свадьба Семёна и Маши');
+        const body = encodeURIComponent(pendingMessage);
+        const mailtoLink = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+        
         document.getElementById('messengerModal').classList.remove('show');
-        window.open(maxLink, '_blank');
+        window.location.href = mailtoLink;
     }
 
     function sendToTelegram() {
@@ -705,7 +811,7 @@
         window.open(url, '_blank');
     }
 
-    // Закрытие модального окна при клике вне диалога
+    // Закрытие модального окна
     document.getElementById('messengerModal').addEventListener('click', function(e) {
         if (e.target === this) {
             this.classList.remove('show');
